@@ -1,0 +1,16 @@
+
+
+<h1>Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <h2><%= link_to post.title, post %></h2>
+      <p><strong>Category:</strong> <%= post.category %></p>
+      <p><strong>Posted by:</strong> <%= post.user.username %></p>
+      <p><strong>Posted at:</strong> <%= post.created_at.strftime('%B %e, %Y %I:%M %p') %></p>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'New Post', new_post_path %>
