@@ -18,6 +18,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find_by(id: params[:id])
+
+    if @post
+      @post.destroy
+      flash[:success] = 'Post deleted'
+    else
+      flash[:error] = 'Post not found'
+    end
+
+    redirect_to posts_path, status: :see_other
+  end
+
   private
 
   def post_params
