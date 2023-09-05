@@ -31,23 +31,26 @@
 </body>
 </html> %>
 
-<div id="posts-list">
-  <%= render @posts %>
-</div>
-
 <%= form_with(model: @post, url: posts_path, remote: true, html: { multipart: true, class: "form-post" }) do |form| %>
-  <div class="form-submit d-flex flex-column align-items-center w-50">
-    <%= form.text_area :content, class: "form-control", placeholder: "What's happening?" %>
-  </div>
-
-  <div class="control-group">
+  <div class="container d-flex flex-column align-items-center w-50">
+    <% if @post.errors.any? %>
+      <% @post.errors.full_messages.each do |message| %>
+        <p style="color: red"><%= message %></p>
+      <% end %>
+    <% end %>
+    <%= form.text_area :title, class: "form-control", placeholder: "What's happening?" %>
+    <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
+    <%= form.file_field :attachment, id: "fileInput", class: "input-file" %>
+    <div class="icon-container">
     <label class="control-label" for="fileInput">
       <i class="fa-solid fa-paperclip"></i>
     </label>
-    <div class="controls">
-      <%= form.file_field :attachment, id: "fileInput", class: "input-file" %>
-    </div>
+    <button type="submit" class="send-button">
+      <i class="fa-solid fa-paper-plane" id="sendIcon"></i>
+    </button>
   </div>
+<% end %>
 
-  <%= form.submit "Post", class: "btn btn-primary w-50" %>
+<% @posts.each do |post| %>
+  <p><%= post.title %></p>
 <% end %>
