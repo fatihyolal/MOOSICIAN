@@ -1,16 +1,16 @@
-
-
-<h1>Posts</h1>
-
-<ul>
-  <% @posts.each do |post| %>
-    <li>
-      <h2><%= link_to post.title, post %></h2>
-      <p><strong>Category:</strong> <%= post.category %></p>
-      <p><strong>Posted by:</strong> <%= post.user.username %></p>
-      <p><strong>Posted at:</strong> <%= post.created_at.strftime('%B %e, %Y %I:%M %p') %></p>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'New Post', new_post_path %>
+<div id="new-post-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Create New Post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add your form for creating a new post here -->
+        <%= render 'form', post: @post %>
+      </div>
+    </div>
+  </div>
+</div>
