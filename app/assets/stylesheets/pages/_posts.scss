@@ -1,0 +1,19 @@
+.input-file {
+  opacity: 0;
+}
+
+.form-post {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.control-group {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.form-control {
+  display: flex;
+}
