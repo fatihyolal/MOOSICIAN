@@ -1,11 +1,12 @@
+
 <%= form_with(model: @post, url: posts_path, remote: true, html: { multipart: true, class: "form-post" }) do |form| %>
-  <div class="container d-flex flex-column align-items-center w-50">
+  <div class="container d-flex flex-column align-items-center w-50 py-5">
     <% if @post.errors.any? %>
       <% @post.errors.full_messages.each do |message| %>
         <p style="color: red"><%= message %></p>
       <% end %>
     <% end %>
-    <%= form.text_area :title, class: "form-control", placeholder: "What's happening?" %>
+    <%= form.text_area :title, class: "form-control", placeholder: "What tunes on your mind moosician?" %>
     <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
     <%= form.file_field :attachment, id: "fileInput", class: "input-file" %>
     <div class="icon-container">
@@ -22,7 +23,7 @@
 <div class="container">
   <% @posts.each do |post| %>
     <div class="post-container">
-      <div class="border border-3 h-100 my-3 d-flex justify-content-evenly">
+      <div class="border border-3 h-100 my-3 d-flex bg-white justify-content-evenly">
 
 
         <!-- Name and Username -->
@@ -32,11 +33,26 @@
 
         <!-- Date & Time -->
         <p class="post-time"><%= post.created_at.strftime("%B %d, %Y %I:%M %p") %></p>
+
         <i class="fa-solid fa-reply"></i>
-        <i class="fa-solid fa-heart"></i>
+        <!-- Like Icon - Clickable -->
+        <a href="#" class="like-link" data-post-id="<%= post.id %>" data-likes="0">
+          <i class="fa-solid fa-heart"></i>
+          <span class="like-count">0</span>
+        </a>
+
       </div>
 
       <!-- Other post content can go here -->
     </div>
   <% end %>
 </div>
+
+<%= simple_form_for :post, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="post[query]" id="post_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fa-solid fa-paper-plane" id="sendIcon"></i> Post
+    </button>
+  </div>
+<% end %>
