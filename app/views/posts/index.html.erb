@@ -1,22 +1,45 @@
-<div class="container">
-  <h1>New Post</h1>
-  <%= render 'form', post: @post %>
+<%# <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="Twitter Bootstrap Version2.0 horizontal form layout example from w3resource.com.">
+<link href="twitter-bootstrap-v2/docs/assets/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+<form class="form-horizontal d-flex flex-column align-items-center">
+        <fieldset>
+
+          <div class="control-group">
+            <label class="control-label mt-2" for="textarea">New Post</label>
+            <div class="controls">
+              <textarea class="form-submit w-100" id="textarea" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="fileInput">File input</label>
+            <div class="controls">
+              <input class="input-file" id="fileInput" type="file">
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary my-2">POST</button>
+            <button class="btn">❌</button>
+          </div>
+        </fieldset>
+</form>
+</div>
+</body>
+</html> %>
+
+<div id="posts-list">
+  <%= render @posts %>
 </div>
 
-<div class="container">
-  <h1>Posts</h1>
 
-  <!-- List of Past Posts -->
-  <ul>
-    <% @posts.each do |post| %>
-      <li>
-        <h2><%= link_to post.title, post %></h2>
-        <p><strong>Category:</strong> <%= post.category %></p>
-        <p><strong>Posted by:</strong> <%= post.user.username %></p>
-        <p><strong>Posted at:</strong> <%= post.created_at.strftime('%B %e, %Y %I:%M %p') %></p>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<%= form_with(model: @post, url: posts_path, remote: true) do |form| %>
+  <div class="form-submit d-flex flex-column align-items-center w-100">
+    <%= form.text_area :content, class: "form-control", placeholder: "What's happening?" %>
+  </div>
+  <%= form.submit "Post", class: "btn btn-primary" %>
 
-<%= link_to 'Back', posts_path %>
+<% end %>
