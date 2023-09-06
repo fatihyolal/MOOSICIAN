@@ -1,0 +1,20 @@
+<div>
+  <h1><%= post.title %></h1>
+  <p><%= post.description %></p>
+  <hr>
+  <div>
+    <div>
+      <div>
+      <%= post.user.first_name %>
+      <%= post.user.last_name %>
+      <%= post.user.username %>
+      </div>
+      <%= post.created_at %>
+    </div>
+    <div>
+      <%# <%= link_to <i class="fa-solid fa-share"></i>, "#" %> %>
+      <%# <%= link_to <i class="fa-solid fa-heart"></i>, "#" %> %>
+      <%# <%= link_to <i class="fa-solid fa-comment"></i>, "#" %> %>
+    </div>
+  </div>
+</div>

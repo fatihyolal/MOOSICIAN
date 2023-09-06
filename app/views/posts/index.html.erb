@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+      <% @posts.each do |post| %>
+        <%= render "shared/post_card" %>
+      <% end %>
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
+</div>
