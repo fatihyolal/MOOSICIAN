@@ -23,23 +23,20 @@
 <div class="container">
   <% @posts.each do |post| %>
     <div class="post-container">
-      <div class="border border-3 h-100 my-3 d-flex bg-white justify-content-evenly">
+      <div class="border border-3 rounded d-flex flex-column align-items-center my-3 p-3 bg-white">
 
 
         <!-- Name and Username -->
 
-        <!-- Post Text -->
-        <p class="post-text"><%= post.title %></p>
-
-        <!-- Date & Time -->
         <p class="post-time"><%= post.created_at.strftime("%B %d, %Y %I:%M %p") %></p>
 
-        <i class="fa-solid fa-reply"></i>
-        <!-- Like Icon - Clickable -->
-        <a href="#" class="like-link" data-post-id="<%= post.id %>" data-likes="0">
+        <p class="post-text"><%= post.title %></p>
+
+        <div i class="fa-solid fa-reply"></i>
           <i class="fa-solid fa-heart"></i>
-          <span class="like-count">0</span>
-        </a>
+          <i class="fa-solid fa-comments"></i>
+
+        </div>
 
       </div>
 
