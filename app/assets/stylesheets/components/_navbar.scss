@@ -1,12 +1,53 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $bluepink;
+  height: 80px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-dropdown-btn {
+  margin-left: 20px;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 8px;
+  background-color: $pink-blue;
+  border: 0;
+  color:black;
+  &:hover {
+    background-color: $pink;
+}
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-search {
+  background-color: $pink-blue;
+  color: grey;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+  border: 0;
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.navbar-search-btn {
+  border-radius: 0 8px 8px 0;
+  background-color: $blue-pink;
+  margin-right: 20px;
+  &:hover {
+    background-color: $blue-pink;
+  }
+}
+.navbar-dropdown-menu {
+  background-color: $pink-blue;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-item {
+  &:hover {
+    background-color: $blue-pink;
+  }
 }
