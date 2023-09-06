@@ -8,7 +8,6 @@ class MessagePolicy < ApplicationPolicy
       user.admin? ? scope.all : scope.where(user: user)
     end
 
-
     def update?
       record.user == user
     end

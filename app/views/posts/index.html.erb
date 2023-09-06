@@ -1,55 +1,30 @@
-
-<%= form_with(model: @post, url: posts_path, remote: true, html: { multipart: true, class: "form-post" }) do |form| %>
-  <div class="container d-flex flex-column align-items-center w-50 py-5">
-    <% if @post.errors.any? %>
-      <% @post.errors.full_messages.each do |message| %>
-        <p style="color: red"><%= message %></p>
-      <% end %>
-    <% end %>
-    <%= form.text_area :title, class: "form-control", placeholder: "What tunes on your mind moosician?" %>
-    <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
-    <%= form.file_field :attachment, id: "fileInput", class: "input-file" %>
-    <div class="icon-container">
-    <label class="control-label mx-3" for="fileInput">
-      <i class="fa-solid fa-paperclip"></i>
-    </label>
-    <button type="submit" class="send-button">
-      <i class="fa-solid fa-paper-plane" id="sendIcon"></i>
-    </button>
-  </div>
-<% end %>
-
-
 <div class="container">
-  <% @posts.each do |post| %>
-    <div class="post-container">
-      <div class="border border-3 rounded d-flex flex-column align-items-center my-3 p-3 bg-white">
-
-
-        <!-- Name and Username -->
-
-        <p class="post-time"><%= post.created_at.strftime("%B %d, %Y %I:%M %p") %></p>
-
-        <p class="post-text"><%= post.title %></p>
-
-        <div i class="fa-solid fa-reply"></i>
-          <i class="fa-solid fa-heart"></i>
-          <i class="fa-solid fa-comments"></i>
-
-        </div>
-
-      </div>
-
-      <!-- Other post content can go here -->
+  <div class="row">
+    <div class="col-3 p-3">
     </div>
-  <% end %>
-</div>
-
-<%= simple_form_for :post, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="post[query]" id="post_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fa-solid fa-paper-plane" id="sendIcon"></i> Post
-    </button>
+    <div class="col-6 p-3">
+      <%= form_with(model: @post, url: posts_path, remote: true, html: { multipart: true, class: "form-post" }) do |form| %>
+        <div class="container d-flex flex-column align-items-center w-50 py-5">
+          <% if @post.errors.any? %>
+            <% @post.errors.full_messages.each do |message| %>
+              <p style="color: red"><%= message %></p>
+            <% end %>
+          <% end %>
+          <%= form.text_area :title, class: "form-control", placeholder: "What tunes on your mind moosician?" %>
+          <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
+          <%= form.file_field :attachment, id: "fileInput", class: "input-file" %>
+          <div class="icon-container">
+          <label class="control-label mx-3" for="fileInput">
+            <i class="fa-solid fa-paperclip"></i>
+          </label>
+          <button type="submit" class="send-button">
+            <i class="fa-solid fa-paper-plane" id="sendIcon"></i>
+          </button>
+        </div>
+      <% end %>
+      <%= render @posts %>
+    </div>
+    <div class="col-3 p-3">
+    </div>
   </div>
-<% end %>
+</div>
