@@ -1,0 +1,29 @@
+<div class="index-card my-3">
+  <h1><%= post.description %></h1>
+  <div class="d-flex align-items-center justify-content-between w-100 info-actions-bar">
+  <div class="d-flex">
+    <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
+    <div>
+      <div>
+      <p class="name-username">
+        <b><%= post.user.first_name %>
+        <%= post.user.last_name %></b>
+        <%= post.user.username %>
+      </p>
+      </div>
+      <p class="name-username"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
+    </div>
+  </div>
+    <div>
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-share icon fa-2xl"></i>
+      <% end %>
+        <%= link_to "#" do %>
+        <i class="fa-solid fa-heart icon fa-2xl"></i>
+      <% end %>
+        <%= link_to "#" do %>
+        <i class="fa-solid fa-comment icon fa-2xl"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,20 +1,36 @@
 <nav class="navbar navbar-lewagon">
   <div class="container-fluid">
-    <div class="dropdown">
-
-      <button class="navbar-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
-      <ul class="dropdown-menu navbar-dropdown-menu">
-        <li><button class="dropdown-item" type="button">Feed</button></li>
-        <li><button class="dropdown-item" type="button">My profile</button></li>
-        <li><button class="dropdown-item" type="button">Messages</button></li>
-        <li><button class="dropdown-item" type="button"><%=current_user.email%></button></li>
-
-      </ul>
+  <div class="row w-100">
+    <div class="col-3 d-flex justify-content-start align-items-center">
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <button class="navbar-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
+          <ul class="dropdown-menu navbar-dropdown-menu">
+            <%= link_to "Feed", "#", class: "dropdown-item" %>
+            <%= link_to "My profile", "#", class: "dropdown-item" %>
+            <%= link_to "Messages", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+          </ul>
+        </div>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "navbar-dropdown-btn" %>
+        <% end %>
     </div>
-    <h1>Moosician</h1>
-    <form class="d-flex" role="search">
-      <input class="form-control navbar-search" type="search" placeholder="Search..." aria-label="Search">
-      <button class="btn navbar-search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
+      <div class="col-6 d-flex justify-content-center align-items-center">
+        <h1>Moosician</h1>
+      </div>
+      <div class="col-3 d-flex justify-content-end align-items-center">
+         <%= form_with url: posts_path, method: :get, class: "d-flex w-100" do %>
+            <%= text_field_tag :query,
+                  params[:query],
+                  class: "form-control navbar-search",
+                  placeholder: "Search"
+              %>
+            <%= button_tag type: "submit", class: "btn navbar-search-btn" do %>
+              <i class="fa-solid fa-magnifying-glass"></i>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
   </div>
 </nav>
