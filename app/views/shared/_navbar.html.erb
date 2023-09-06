@@ -1,11 +1,14 @@
 <nav class="navbar navbar-lewagon">
   <div class="container-fluid">
     <div class="dropdown">
+
       <button class="navbar-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
       <ul class="dropdown-menu navbar-dropdown-menu">
         <li><button class="dropdown-item" type="button">Feed</button></li>
         <li><button class="dropdown-item" type="button">My profile</button></li>
         <li><button class="dropdown-item" type="button">Messages</button></li>
+        <li><button class="dropdown-item" type="button"><%=current_user.email%></button></li>
+
       </ul>
     </div>
     <h1>Moosician</h1>
