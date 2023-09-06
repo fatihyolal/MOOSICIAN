@@ -3,24 +3,26 @@
     <div class="col-3 p-3">
     </div>
     <div class="col-6 px-3">
+       <div class="container">
       <%= form_with(model: @post, url: posts_path, remote: true, html: { multipart: true, class: "form-post" }) do |form| %>
-        <div class="d-flex flex-column align-items-center w-100 my-3">
+        <div class="d-flex flex-column align-items-end w-100 my-3 bg-white">
           <% if @post.errors.any? %>
             <% @post.errors.full_messages.each do |message| %>
               <p style="color: red"><%= message %></p>
             <% end %>
           <% end %>
-          <%= form.text_area :title, class: "form-control", placeholder: "What tunes on your mind moosician?" %>
+          <%= form.text_area :title, class: "form-control bg-white", placeholder: "What tunes on your mind moosician?" %>
           <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
           <%= form.file_field :attachment, id: "fileInput", class: "input-file" %>
           <div class="icon-container">
-          <label class="control-label mx-3" for="fileInput">
+          <label class="control-label" for="fileInput">
             <i class="fa-solid fa-paperclip"></i>
           </label>
-          <button type="submit" class="send-button">
+          <button type="submit" class="send-button bg-white">
             <i class="fa-solid fa-paper-plane" id="sendIcon"></i>
           </button>
-        </div>
+          </div>
+          </div>
       <% end %>
       <%= render @posts %>
     </div>
