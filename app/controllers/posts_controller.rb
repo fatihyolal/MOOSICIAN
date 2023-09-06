@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = policy_scope(Post)
+
     if params[:query].present?
     @posts = Post.where("title ILIKE :query OR synopsis ILIKE :query, query:",
     "%#{params[:query]}%")
@@ -8,6 +9,10 @@ class PostsController < ApplicationController
       @posts = policy_scope(Post)
     end
     #,description:,category:,user_id:
+
+    @post = Post.new
+    @posts = Post.all
+
   end
 
 end
