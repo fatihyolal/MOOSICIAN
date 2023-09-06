@@ -15,6 +15,20 @@ class PostsController < ApplicationController
 
   end
 
+  def create
+    @post = Post.new(post_params)
+    @post.user = current_user
+    if @post.save
+      respond_to do |format|
+        format.html { redirect_to posts_path }
+        format.js
+      end
+    else
+      @posts = Post.all
+      render :index, status: :unprocessable_entity
+    end
+  end
+
 end
 
 # questions to ask ? what if i want to search a user_id
