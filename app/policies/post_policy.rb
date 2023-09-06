@@ -8,7 +8,7 @@ class PostPolicy < ApplicationPolicy
       user.admin? ? scope.all : scope.where(user: user)
     end
   end
-  
+
   def index
     true
   end
