@@ -9,6 +9,10 @@ class PostPolicy < ApplicationPolicy
     end
   end
 
+  def index
+    true
+  end
+
   def update?
     record.user == user
   end
