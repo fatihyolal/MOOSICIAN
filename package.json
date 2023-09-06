@@ -1,0 +1,17 @@
+{
+  "name": "MOOSICIAN",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:fatihyolal/MOOSICIAN.git",
+  "author": "dhiraj chakma <chakmadhiraj@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel app/javascript -d lib --watch",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.15",
+    "@babel/core": "^7.22.15",
+    "@babel/preset-env": "^7.22.15"
+  }
+}
