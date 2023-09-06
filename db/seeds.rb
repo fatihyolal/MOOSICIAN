@@ -1,5 +1,4 @@
-puts "deleting all the users........"
-User.destroy_all
+
 users1 = User.create!(email: "kanyecrazy2023@gmail.com", password: "12345678",password_confirmation:"12345678" ,username:"@Kanye_crzy" ,
 bio:" - All Gas No Breaks - Upcoming artist with sick beeeats too ,yoo! - Rapper/Beats",location: "Chicago,Illinois",admin:true,first_name:"Kanye",last_name:"East")
 
@@ -23,12 +22,8 @@ chatrooms3 = Chatroom.create
 chatrooms4 = Chatroom.create
 chatrooms5 = Chatroom.create
 
-#   Character.create(name: "Luke", movie: movies.first)
-
-
-
    Message.create!(content: "how you doing bro",chatroom:chatrooms1,user:users1)
-  Message.create(content:"Long time noo speak",chatroom:chatrooms2,user:users2)
+   Message.create(content:"Long time noo speak",chatroom:chatrooms2,user:users2)
    Message.create(content:"yooo man ive just seen your post would love to collab",chatroom:chatrooms3,user:users3)
    Message.create(content:"heard you was looking for a collab",chatroom:chatrooms4,user:users4)
    Message.create(content:"when you next in LA bro , got a studio!",chatroom:chatrooms5,user:users5)
