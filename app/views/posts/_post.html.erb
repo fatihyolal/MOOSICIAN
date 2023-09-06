@@ -1,13 +1,12 @@
-<div class="post-card">
-  <h1><%= post.title %></h1>
-  <p><%= post.description %></p>
+<div class="post-card my-3">
+  <h1><%= post.description %></h1>
   <div class="d-flex align-items-center justify-content-between w-100 info-actions-bar">
     <div>
       <div>
       <p class="name-username">
         <b><%= post.user.first_name %>
         <%= post.user.last_name %></b>
-        @<%= post.user.username %>
+        <%= post.user.username %>
       </p>
       </div>
       <p class="name-username"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
