@@ -10,7 +10,8 @@
               <div class="flex-grow-1 ms-3">
                 <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
                 <div class="details">
-                  <div class="name"> <%= message.first.user.username %></div>
+                  <div class="name"> <%= message.first.user.first_name %> <%= message.first.user.last_name %> <%= message.first.user.username %></div>
+                  <div class="content"></i> <%= message.first.content  %></div>
                   <div class="date"></i> <%= message.first.created_at  %></div>
                 </div>
               </div>
