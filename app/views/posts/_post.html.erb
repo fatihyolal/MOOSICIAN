@@ -14,15 +14,17 @@
       <p class="name-username"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
     </div>
   </div>
-    <div>
+    <div class="d-flex align-items-center">
+      <h3 class="me-1 mb-0"><%= post.likes.length %></h3>
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-heart icon fa-2xl me-1"></i>
+      <% end %>
+      <h3 class="me-1 mb-0"><%= post.comments.length %></h3>
+      <%= link_to "#" do %>
+        <i class="fa-solid fa-comment icon fa-2xl me-1"></i>
+      <% end %>
       <%= link_to "#" do %>
         <i class="fa-solid fa-share icon fa-2xl"></i>
-      <% end %>
-        <%= link_to "#" do %>
-        <i class="fa-solid fa-heart icon fa-2xl"></i>
-      <% end %>
-        <%= link_to "#" do %>
-        <i class="fa-solid fa-comment icon fa-2xl"></i>
       <% end %>
     </div>
   </div>
