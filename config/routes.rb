@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   end
   resources :likes, only: :destroy
   resources :users, only: [:show]
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: %i[show index] do
     resources :messages, only: :create
+    get 'messages', on: :member, to: 'chatrooms#show_messages'
   end
 end
