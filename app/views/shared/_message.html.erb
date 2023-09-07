@@ -1,4 +1,5 @@
 <div class="container py-5 h-100">
+<% if received_messages.any? %>
     <%  @received_messages.each do |message| %>
         <div class="message-card col-3 col-m-3 col-xs-16">
             <div class="d-flex p-4">
@@ -16,4 +17,5 @@
             </div>
         </div>
       <% end %>
+<% end %>
   </div>
