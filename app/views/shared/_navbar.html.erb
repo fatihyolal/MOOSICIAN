@@ -6,8 +6,8 @@
         <div class="dropdown">
           <button class="navbar-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
           <ul class="dropdown-menu navbar-dropdown-menu">
-            <%= link_to "Feed", "#", class: "dropdown-item" %>
-            <%= link_to "My profile", "#", class: "dropdown-item" %>
+            <%= link_to "Feed", root_path, class: "dropdown-item" %>
+            <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
             <%= link_to "Messages", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
           </ul>
