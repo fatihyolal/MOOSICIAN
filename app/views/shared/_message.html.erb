@@ -1,6 +1,6 @@
 <div class="container py-5 h-100">
-<% if @received_messages.any? %>
-    <%  @received_messages.each do |message| %>
+    <% @received_messages.each do |message| %>
+      <% if message.first.present? %>
         <div class="message-card col-3 col-m-3 col-xs-16">
             <div class="d-flex p-4">
               <div class="flex-shrink-0">
@@ -17,5 +17,5 @@
             </div>
         </div>
       <% end %>
-<% end %>
-  </div>
+  <% end %>
+</div>
