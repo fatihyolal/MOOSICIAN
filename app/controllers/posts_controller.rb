@@ -32,4 +32,3 @@ class PostsController < ApplicationController
 end
 
 # questions to ask ? what if i want to search a user_id
-
