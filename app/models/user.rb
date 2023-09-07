@@ -12,4 +12,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   # validates :username, presence: true, uniqueness: true
   # validates :bio, presence: true
+  def username_with_at
+    "@" + username
+  end
 end
