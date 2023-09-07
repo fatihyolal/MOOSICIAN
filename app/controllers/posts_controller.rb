@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = policy_scope(Post)
+    @post = Post.new
 
     if params[:query].present?
     @posts = Post.where("title ILIKE :query OR synopsis ILIKE :query, query:",
@@ -10,7 +11,7 @@ class PostsController < ApplicationController
     end
     #,description:,category:,user_id:
 
-    @post = Post.new
+
     @posts = Post.all
 
   end
@@ -32,7 +33,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:description, :attachment)
+    params.require(:post).permit(:description)
   end
 
 end
