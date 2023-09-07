@@ -14,14 +14,21 @@ class PostsController < ApplicationController
 
 
   def create
+    result = Cloudinary::Uploader.upload(params[:post][:attachment])
     @post = Post.new(post_params)
+    @post.attachment_url = result['secure_url']
     @post.user = current_user
     if @post.save
+      @posts = policy_scope(Post)
+
+      @comment = Comment.new
+
       respond_to do |format|
         format.html { redirect_to posts_path }
         format.js
       end
     else
+      @posts = policy_scope(Post)
       render :index, status: :unprocessable_entity
     end
     authorize @post
@@ -29,9 +36,8 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:description)
+    params.require(:post).permit(:description, :attachment)
   end
 
 
 end
-
