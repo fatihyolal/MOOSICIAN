@@ -7,13 +7,13 @@ class LikePolicy < ApplicationPolicy
     def resolve
       user.admin? ? scope.all : scope.where(user: user)
     end
+  end
 
-    def update?
-      record.user == user
-    end
+  def create?
+    record.user == user
+  end
 
-    def destroy
-      record.user == user
-    end
+  def destroy?
+    record.user == user
   end
 end
