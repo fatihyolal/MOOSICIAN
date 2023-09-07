@@ -2,9 +2,7 @@
   <div class="profile-card">
     <div class="d-flex p-4">
       <div class="flex-shrink-0">
-        <img src="https://i.pinimg.com/originals/be/71/63/be7163f14270f5f5f5868ad29843430f.gif"
-          alt="profile picture" class="img-fluid"
-          >
+        <%= cl_image_tag @user.photo.key %>
       </div>
       <div class="flex-grow-1 ms-3">
         <div class="d-flex">
