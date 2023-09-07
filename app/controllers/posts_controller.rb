@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     else
       @posts = policy_scope(Post)
     end
+    @comment = Comment.new
   end
 
 
@@ -21,12 +22,16 @@ class PostsController < ApplicationController
         format.js
       end
     else
-      @posts = Post.all
       render :index, status: :unprocessable_entity
     end
+    authorize @post
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:description)
   end
 
 
 end
 
-# questions to ask ? what if i want to search a user_id

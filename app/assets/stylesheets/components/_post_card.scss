@@ -17,6 +17,10 @@
 
 .icon {
   color: $bluepink;
+  &:hover {
+    color: white;
+    transition: 0.3s ease;
+  }
 }
 
 .name-username {

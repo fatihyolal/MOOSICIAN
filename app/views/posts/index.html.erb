@@ -21,7 +21,7 @@
               <p style="color: red"><%= message %></p>
             <% end %>
           <% end %>
-          <%= form.text_area :title, class: "form-control new-post-textfield border-0", placeholder: "What tunes on your mind moosician?" %>
+          <%= form.text_area :description, class: "form-control new-post-textfield border-0", placeholder: "What tunes on your mind moosician?" %>
           <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
           <%= form.file_field :attachment, id: "fileInput", class: "input-file" %>
           <div class="icon-container">
@@ -35,8 +35,7 @@
           </div>
       <% end %>
       <%= render @posts %>
-
-    <div class="col-3 p-3">
+      </div>
     </div>
   </div>
 </div>
