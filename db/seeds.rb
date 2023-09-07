@@ -33,6 +33,9 @@ chatrooms4 = Chatroom.create
 chatrooms5 = Chatroom.create
 
    Message.create!(content: "how you doing bro",chatroom:chatrooms1,user:users1)
+   Message.create!(content: "whats up",chatroom:chatrooms1,user:users2)
+   Message.create!(content: "whats up",chatroom:chatrooms2,user:users3)
+   Message.create!(content: "heyyo",chatroom:chatrooms2,user:users4)
    Message.create!(content: "helloo",chatroom:chatrooms1,user:users2)
    Message.create(content:"Long time noo speak",chatroom:chatrooms2,user:users2)
    Message.create(content:"yooo man ive just seen your post would love to collab",chatroom:chatrooms3,user:users3)

@@ -4,14 +4,19 @@ class PostPolicy < ApplicationPolicy
     # def resolve
     #   scope.all
     # end
+    # THIS METHOD TAKES CARE OF WHAT YOU WILL SEE IN THE INDEX PAGE
     def resolve
-      user.admin? ? scope.all : scope.where(user: user)
+      # IF YOU DO THIS, YOU SAY " If the use is the admin, show all the posts, otherwise, only show the ones where the creator of the post is the current user."
+      # user.admin? ? scope.all : scope.where(user: user)
+      # WITH THIS YOU SHOW EVERYTHING TO EVERYONE
+      scope.all
     end
   end
 
-  def index
-    true
-  end
+  # THIS IS NOT HOW YOU DO THE INDEX ACTION!
+  # def index
+  #   true
+  # end
 
   def update?
     record.user == user
@@ -21,3 +26,4 @@ class PostPolicy < ApplicationPolicy
     record.user == user
   end
 end
+

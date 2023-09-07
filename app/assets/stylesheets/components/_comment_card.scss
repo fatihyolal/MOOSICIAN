@@ -1,0 +1,16 @@
+.comment-card {
+  border-bottom: 1px solid darkgray;
+}
+
+.comment-container {
+  background-color: $blue-pink;
+  border-radius: 0 0 20px 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+}
