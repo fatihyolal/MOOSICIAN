@@ -19,10 +19,11 @@
       <div class="col-6 d-flex justify-content-center align-items-center">
         <h1>Moosician</h1>
       </div>
-      <div class="col-3 d-flex justify-content-end align-items-center">
-         <%= form_with url: posts_path, method: :get, class: "d-flex w-100" do %>
+      <div class="col-3 d-flex justify-content-end align-items-center" data-controller="search-global">
+         <%= form_with url: posts_path, method: :get, class: "d-flex w-100", data:{search_global_target:"form"} do %>
             <%= text_field_tag :query,
                   params[:query],
+                  data: {search_global_target:"input"},
                   class: "form-control navbar-search",
                   placeholder: "Search"
               %>
