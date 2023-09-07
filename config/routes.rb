@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :posts, only: :index
   resources :users, only: [:show]
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: %i[show index] do
     resources :messages, only: :create
+    get 'messages', on: :member, to: 'chatrooms#show_messages'
   end
 
 end
