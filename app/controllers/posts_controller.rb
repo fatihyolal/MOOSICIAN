@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     else
       @posts = policy_scope(Post)
     end
+    @comment = Comment.new
   end
 
 
