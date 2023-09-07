@@ -1,0 +1,14 @@
+.moosician-btn {
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 8px;
+  background-color: $blue-pink;
+  border: 0;
+  color:black;
+  &:hover {
+    background-color: $bluepink;
+}
+}
