@@ -10,9 +10,12 @@ Rails.application.routes.draw do
 
   resources :posts, only: %i[index create] do
     resources :comments, only: :create
+    resources :likes, only: :create
   end
+  resources :likes, only: :destroy
   resources :users, only: [:show]
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: %i[show index] do
     resources :messages, only: :create
+    get 'messages', on: :member, to: 'chatrooms#show_messages'
   end
 end
