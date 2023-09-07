@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :posts, only: [:index, :create]
   resources :users, only: [:show]
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
+
 end

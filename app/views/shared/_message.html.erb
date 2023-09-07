@@ -1,0 +1,21 @@
+<div class="container py-5 h-100">
+    <% @received_messages.each do |message| %>
+      <% if message.first.present? %>
+        <div class="message-card col-3 col-m-3 col-xs-16">
+            <div class="d-flex p-4">
+              <div class="flex-shrink-0">
+                 <%= cl_image_tag message.first.user.photo.key %>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
+                <div class="details">
+                  <div class="name"> <%= message.first.user.first_name %> <%= message.first.user.last_name %> <%= message.first.user.username %></div>
+                  <div class="content"></i> <%= message.first.content  %></div>
+                  <div class="date"></i> <%= message.first.created_at.strftime("received at %I:%M%p on %m/%d/%Y")  %></div>
+                </div>
+              </div>
+            </div>
+        </div>
+      <% end %>
+  <% end %>
+</div>

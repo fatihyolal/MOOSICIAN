@@ -987,6 +987,11 @@
   resolved "https://registry.yarnpkg.com/@nicolo-ribaudo/chokidar-2/-/chokidar-2-2.1.8-no-fsevents.3.tgz#323d72dd25103d0c4fbdce89dadf574a787b1f9b"
   integrity sha512-s88O1aVtXftvp5bCPB7WnmXc5IwOZZ7YPuwNPt+GtOOXpPvad1LfbmjYv+qII7zP6RU2QGnqve27dnLycEnyEQ==
 
+"@rails/actioncable@^7.0.7-2":
+  version "7.0.7-2"
+  resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.7-2.tgz#c2a28d64720d2b44e421a1b3790070d5fc3f2da2"
+  integrity sha512-7irihOFG//9Z4kBuiwH+VqSfiCdOLcuhC0/y7QcxOC9R08QE5Hq7N+ex2o3SkqiszbmMh7tlj88V+y+Kt/TPmA==
+
 ansi-styles@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.1.tgz#41fbb20243e50b12be0f04b8dedbf07520ce841d"
