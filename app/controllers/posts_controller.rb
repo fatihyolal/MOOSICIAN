@@ -27,6 +27,12 @@ class PostsController < ApplicationController
       @posts = Post.all
       render :index, status: :unprocessable_entity
     end
+    authorize @post
+  end
+
+  private
+  def post_params
+    params.require(:post).permit(:description, :attachment)
   end
 
 end

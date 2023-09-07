@@ -13,6 +13,10 @@ class PostPolicy < ApplicationPolicy
     true
   end
 
+  def create?
+    true
+  end
+
   def update?
     record.user == user
   end
