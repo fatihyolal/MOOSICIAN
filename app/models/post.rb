@@ -7,4 +7,8 @@ class Post < ApplicationRecord
   validates :description, presence: true
 
   # validates :category, inclusion: { in: ["rock", "jazz", "blues", "hiphop", "rap"] }
+
+  def liked_by_user?(user)
+    self.likes.find_by(user: user).present?
+  end
 end
