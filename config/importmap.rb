@@ -9,3 +9,4 @@ pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "@rails/actioncable", to: "https://ga.jspm.io/npm:@rails/actioncable@7.0.7-2/app/assets/javascripts/actioncable.esm.js"
 
+#test
