@@ -21,26 +21,27 @@
 }
 
 .navbar-search {
-  background-color: $coolgrey600;
+  background-color: $coolgrey700;
   color: $neutralgrey200;
   border-radius: 8px 0 0 8px;
   outline: none;
   border: 0;
   &:focus {
     box-shadow: none;
+    background-color: $coolgrey600;
   }
 }
 
 .navbar-search-btn {
   border-radius: 0 8px 8px 0;
-  background-color: $coolgrey500;
+  background-color: $secondaryteal;
   margin-right: 20px;
   &:hover {
-    background-color: $coolgrey400;
+    background-color: $primaryteal;
   }
 }
 .navbar-dropdown-menu {
-  background-color: $coolgrey600;
+  background-color: $coolgrey700;
   border: none;
   margin: 0;
   padding: 0;
@@ -48,6 +49,6 @@
 
 .dropdown-item {
   &:hover {
-    background-color: $coolgrey500;
+    background-color: $coolgrey600;
   }
 }
