@@ -1,6 +1,10 @@
 <div class="my-3" data-controller="comments">
   <div class="index-card" data-comments-target="indexCard">
     <h1><%= post.description %></h1>
+    <% if post.audio_data.attached? %>
+    <%= audio_tag post.audio_data.url, controls:true %>
+    <% end %>
+
     <div class="d-flex align-items-center justify-content-between w-100 info-actions-bar">
       <%= link_to user_path(post.user) do %>
       <div class="d-flex">
@@ -43,11 +47,13 @@
   <div class="comment-container d-none" data-comments-target="commentsContainer">
     <%= render post.comments %>
   <div class="w-100">
+  <% if @comment.present? %>
     <%= simple_form_for [post, @comment], html: {class: "d-flex justify-content-between align-items-center"} do |f| %>
       <%= f.input :content, input_html: {class: "w-100 comment-text-input"}, wrapper_html: {class: "w-100"}, label: false %>
       <%= f.button :button, class: "comment-form-btn" do %>
         <i class="fa-solid fa-paper-plane fa-2xl icon"></i>
       <% end %>
+   <% end %>
   <% end %>
   </div>
   </div>
