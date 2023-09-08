@@ -1,6 +1,10 @@
 <div class="my-3" data-controller="comments">
   <div class="index-card" data-comments-target="indexCard">
     <h1><%= post.description %></h1>
+    <% if post.audio_data.attached? %>
+    <%= audio_tag post.audio_data.url, controls:true %>
+    <% end %>
+
     <div class="d-flex align-items-center justify-content-between w-100 info-actions-bar">
       <div class="d-flex">
         <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>

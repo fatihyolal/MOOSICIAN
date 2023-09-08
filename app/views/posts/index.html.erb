@@ -14,7 +14,7 @@
           <% end %>
           <%= form.text_area :description, class: "form-control new-post-textfield border-0", placeholder: "What tunes on your mind moosician?" %>
           <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
-          <%= form.file_field :attachment, id: "fileInput", class: "input-file" %>
+          <%= form.file_field :audio_data, id: "fileInput", class: "input-file" %>
           <div class="icon-container">
           <label class="control-label" for="fileInput">
             <i class="fa-solid fa-paperclip fa-2xl icon"></i>
@@ -27,7 +27,6 @@
       <% end %>
       <% @posts.each do |post| %>
         <%= render partial: "posts/post", locals: { post: post } %>
-        <%= cl_image_tag post.attachment_url, class: "img-fluid" if post.attachment_url.present? %>
       <% end %>
       </div>
     </div>

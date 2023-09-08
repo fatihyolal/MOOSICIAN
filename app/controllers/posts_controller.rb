@@ -8,21 +8,18 @@ class PostsController < ApplicationController
     else
       @posts = policy_scope(Post)
     end
-    # @comment = Comment.new
+    @comment = Comment.new
   end
 
-
-
   def create
-    result = Cloudinary::Uploader.upload(params[:post][:attachment])
-    @post = Post.new(post_params)
-    @post.attachment_url = result['secure_url']
-    @post.user = current_user
-    if @post.save
-      @posts = policy_scope(Post)
+    #  result = Cloudinary::Uploader.upload(params[:post][:attachment])
+     @post = Post.new(post_params)
+    #  @post.attachment_url = result['secure_url']
+     @post.user = current_user
+     if @post.save
+       @posts = policy_scope(Post)
 
-      # @comment = Comment.new
-
+      @comment = Comment.new
       respond_to do |format|
         format.html { redirect_to posts_path }
         format.js
@@ -36,7 +33,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:description, :attachment)
+    params.require(:post).permit(:description, :audio_data)
   end
 
 
