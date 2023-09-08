@@ -2,7 +2,7 @@
   <div class="index-card" data-comments-target="indexCard">
     <h1><%= post.description %></h1>
     <div class="d-flex align-items-center justify-content-between w-100 info-actions-bar">
-      <%= link_to user_path(post.user) do %>
+      <%= link_to profile_path(post.user.profile) do %>
       <div class="d-flex">
         <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
         <div>
