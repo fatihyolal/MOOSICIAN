@@ -6,5 +6,5 @@
       <%= current_user.last_name %></h3>
       <p><%= current_user.bio %></p>
       <%= link_to "My profile", user_path(current_user), class: "moosician-btn", style: "margin-bottom: 16px;" %>
-      <p>Joined on <%= current_user.created_at.strftime("#{current_user.created_at.day.ordinalize} of %b, %Y") %></p>
+      <p class="secondary-text">Joined on <%= current_user.created_at.strftime("#{current_user.created_at.day.ordinalize} of %b, %Y") %></p>
     </div>
