@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     else
       @posts = policy_scope(Post)
     end
-    @comment = Comment.new
+    # @comment = Comment.new
   end
 
 
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     if @post.save
       @posts = policy_scope(Post)
 
-      @comment = Comment.new
+      # @comment = Comment.new
 
       respond_to do |format|
         format.html { redirect_to posts_path }

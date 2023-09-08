@@ -27,6 +27,7 @@
       <% end %>
       <% @posts.each do |post| %>
         <%= render partial: "posts/post", locals: { post: post } %>
+        <%= cl_image_tag post.attachment_url, class: "img-fluid" if post.attachment_url.present? %>
       <% end %>
       </div>
     </div>
