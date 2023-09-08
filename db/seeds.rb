@@ -33,14 +33,16 @@ chatrooms4 = Chatroom.create
 chatrooms5 = Chatroom.create
 
    Message.create!(content: "how you doing bro",chatroom:chatrooms1,user:users1)
-   Message.create!(content: "whats up",chatroom:chatrooms1,user:users2)
+   Message.create!(content: "Long time noo speak",chatroom:chatrooms1,user:users2)
    Message.create!(content: "whats up",chatroom:chatrooms2,user:users3)
-   Message.create!(content: "heyyo",chatroom:chatrooms2,user:users4)
-   Message.create!(content: "helloo",chatroom:chatrooms1,user:users2)
-   Message.create(content:"Long time noo speak",chatroom:chatrooms2,user:users2)
+   Message.create!(content: "yooo man ive just seen your post would love to collab",chatroom:chatrooms2,user:users4)
+   Message.create(content:"Long time noo speak",chatroom:chatrooms3,user:users1)
    Message.create(content:"yooo man ive just seen your post would love to collab",chatroom:chatrooms3,user:users3)
    Message.create(content:"heard you was looking for a collab",chatroom:chatrooms4,user:users4)
-   Message.create(content:"when you next in LA bro , got a studio!",chatroom:chatrooms5,user:users5)
+   Message.create(content:"when you next in LA bro , got a studio!",chatroom:chatrooms4,user:users5)
+   Message.create(content:"You know it’s funny when it rains it pours, they got money for wars but can’t feed the poor",chatroom:chatrooms5,user:users4)
+   Message.create(content:"Last name ever, first name greatest, like a sprained ankle boy, I ain’t nothin’ to play with.",chatroom:chatrooms5,user:users5)
+
 
 
 
