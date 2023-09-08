@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: $bluepink;
+  background: $coolgrey800;
   height: 80px;
 }
 
@@ -12,17 +12,17 @@
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 8px;
-  background-color: $pink-blue;
+  background-color: $secondaryteal;
   border: 0;
-  color:black;
+  color: $neutralgrey200;
   &:hover {
-    background-color: $pink;
+    background-color: $primaryteal;
 }
 }
 
 .navbar-search {
-  background-color: $pink-blue;
-  color: grey;
+  background-color: $coolgrey600;
+  color: $neutralgrey200;
   border-radius: 8px 0 0 8px;
   outline: none;
   border: 0;
@@ -33,14 +33,14 @@
 
 .navbar-search-btn {
   border-radius: 0 8px 8px 0;
-  background-color: $blue-pink;
+  background-color: $coolgrey500;
   margin-right: 20px;
   &:hover {
-    background-color: $blue-pink;
+    background-color: $coolgrey400;
   }
 }
 .navbar-dropdown-menu {
-  background-color: $pink-blue;
+  background-color: $coolgrey600;
   border: none;
   margin: 0;
   padding: 0;
@@ -48,6 +48,6 @@
 
 .dropdown-item {
   &:hover {
-    background-color: $blue-pink;
+    background-color: $coolgrey500;
   }
 }
