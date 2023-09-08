@@ -1,7 +1,12 @@
 <div class="my-3" data-controller="comments">
   <div class="index-card" data-comments-target="indexCard">
     <h1><%= post.description %></h1>
+    <% if post.audio_data.attached? %>
+    <%= audio_tag post.audio_data.url, controls:true %>
+    <% end %>
+
     <div class="d-flex align-items-center justify-content-between w-100 info-actions-bar">
+      <%= link_to profile_path(post.user.profile) do %>
       <div class="d-flex">
         <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
         <div>
@@ -12,13 +17,14 @@
             <%= post.user.username %>
           </p>
           </div>
-          <p class="name-username"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
+          <p class="name-username secondary-text"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
         </div>
       </div>
+      <% end %>
       <div class="d-flex align-items-center">
         <%= turbo_frame_tag dom_id(post, :like) do %>
           <div class="d-flex align-items-center">
-            <h3 class="me-1 mb-0" data-likes-target="count"><%= post.likes.length %></h3>
+            <h3 class="me-1 mb-0 text-color" data-likes-target="count"><%= post.likes.length %></h3>
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
                 <i class="fa-solid fa-heart icon fa-2xl me-1 btn-pressed"></i>
@@ -30,7 +36,7 @@
             <% end %>
           </div>
         <% end %>
-        <h3 class="me-1 mb-0"><%= post.comments.length %></h3>
+        <h3 class="me-1 mb-0 text-color"><%= post.comments.length %></h3>
         <i class="fa-solid fa-comment icon fa-2xl me-1" data-action="click->comments#display"></i>
         <%= link_to "#" do %>
           <i class="fa-solid fa-share icon fa-2xl"></i>
@@ -41,11 +47,13 @@
   <div class="comment-container d-none" data-comments-target="commentsContainer">
     <%= render post.comments %>
   <div class="w-100">
+  <% if @comment.present? %>
     <%= simple_form_for [post, @comment], html: {class: "d-flex justify-content-between align-items-center"} do |f| %>
       <%= f.input :content, input_html: {class: "w-100 comment-text-input"}, wrapper_html: {class: "w-100"}, label: false %>
       <%= f.button :button, class: "comment-form-btn" do %>
         <i class="fa-solid fa-paper-plane fa-2xl icon"></i>
       <% end %>
+   <% end %>
   <% end %>
   </div>
   </div>
