@@ -1,19 +1,17 @@
 class PostsController < ApplicationController
   def index
     @posts = policy_scope(Post)
-
+    @post = Post.new
     if params[:query].present?
-    @posts = Post.where("title ILIKE :query OR synopsis ILIKE :query, query:",
-    "%#{params[:query]}%")
+      sql_subquery = "title ILIKE :query OR description ILIKE :query OR username ILIKE :query"
+      @posts = Post.joins(:user).where(sql_subquery, query: "%#{params[:query]}%")
     else
       @posts = policy_scope(Post)
     end
-    #,description:,category:,user_id:
-
-    @post = Post.new
-    @posts = Post.all
-
+    @comment = Comment.new
   end
+
+
 
   def create
     @post = Post.new(post_params)
@@ -24,12 +22,16 @@ class PostsController < ApplicationController
         format.js
       end
     else
-      @posts = Post.all
       render :index, status: :unprocessable_entity
     end
+    authorize @post
   end
 
-end
+  private
+  def post_params
+    params.require(:post).permit(:description)
+  end
 
-# questions to ask ? what if i want to search a user_id
+
+end
 

@@ -11,8 +11,21 @@
   padding-bottom: 10px;
 }
 
+.bottom-border-radius {
+  border-radius: 20px 20px 0 0;
+}
+
+.remove-btn-style {
+  border: none;
+  background-color: $pink-blue;
+}
+
 .icon {
   color: $bluepink;
+  &:hover {
+    color: white;
+    transition: 0.3s ease;
+  }
 }
 
 .name-username {
