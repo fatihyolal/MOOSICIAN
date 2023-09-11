@@ -1,6 +1,5 @@
 <div class="container chatroom" data-controller = "chatroom-subscription" data-chatroom-subscription-chatroom-id-value=<%= @chatroom.id %>>
   <h1>#<%= @chatroom.id %></h1>
-
     <div class="messages" data-chatroom-subscription-target = "messages">
     <% @chatroom.messages.each do |message| %>
       <%
@@ -27,8 +26,11 @@
     <%= f.input :content,
       label: false,
       placeholder: "Message ##{@chatroom.id}",
-      wrapper_html: {class: "flex-grow-1"}
+      wrapper_html: {class: "flex-grow-1"},
+      input_html: {class: "w-100 chatroom-text-input"}
     %>
-    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+    <%= f.button :button, class: "chatroom-form-btn" do %>
+      <i class="fa-solid fa-paper-plane fa-2xl icon"></i>
+    <% end %>
     <% end %>
 </div>

@@ -7,8 +7,8 @@
           <button class="navbar-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
           <ul class="dropdown-menu navbar-dropdown-menu">
             <%= link_to "Feed", root_path, class: "dropdown-item" %>
-            <%= link_to "My profile", user_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Messages", "#", class: "dropdown-item" %>
+            <%= link_to "My profile", profile_path(current_user.profile.id), class: "dropdown-item" %>
+            <%= link_to "Messages", chatrooms_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
           </ul>
         </div>
@@ -17,7 +17,9 @@
         <% end %>
     </div>
       <div class="col-6 d-flex justify-content-center align-items-center">
-        <h1>Moosician</h1>
+        <%= link_to root_path do %>
+        <h1 style="font-family: 'Bebas Neue', sans-serif;" class="m-0">Moosician</h1>
+        <% end %>
       </div>
       <div class="col-3 d-flex justify-content-end align-items-center" >
          <%= form_with url: posts_path, method: :get, html: {class: "d-flex w-100", data: {search_global_target: "form"}} do %>

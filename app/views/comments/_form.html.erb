@@ -1,0 +1,6 @@
+<%= simple_form_for [post, comment], html: {class: "d-flex justify-content-between align-items-center"}, data: { comments_target: "form", action: "submit->comments#send" } do |f| %>
+  <%= f.input :content, input_html: {class: "w-100 comment-text-input"}, wrapper_html: {class: "w-100"}, placeholder: "Comment here...", label: false %>
+  <%= f.button :button, class: "comment-form-btn" do %>
+    <i class="fa-solid fa-paper-plane fa-2xl icon"></i>
+  <% end %>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row" data-controller="chat-details">
+    <div class="col-xl-3 mt-3"> <%= render "shared/profile_vertical" %> </div>
+
+    <div class="col-xl-3 mt-3">
+      <% @last_messages.each do |chatroom,message|  %>
+        <% if chatroom.last_messages(current_user).any?  %>
+          <%= render partial: "messagePreview", locals: { message: message, chatroom: chatroom } %>
+        <% end %>
+      <% end  %>
+    </div>
+
+    <div class="col-xl-6 mt-3" data-chat-details-target="container"></div>
+  </div>
+</div>

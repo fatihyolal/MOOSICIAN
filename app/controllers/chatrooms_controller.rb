@@ -4,4 +4,13 @@ class ChatroomsController < ApplicationController
     @message = Message.new
     authorize @chatroom
   end
+
+  def index
+    @messages = policy_scope(Message)
+
+    @last_messages = {}
+    @messages.each do |message|
+      @last_messages[message.chatroom] = message
+    end
+  end
 end
