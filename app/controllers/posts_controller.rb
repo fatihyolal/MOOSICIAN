@@ -9,6 +9,7 @@ class PostsController < ApplicationController
       @posts = policy_scope(Post)
     end
     @comment = Comment.new
+    @received_messages = current_user.chatrooms.map { |chatroom| chatroom.messages.where.not(user: current_user) }
   end
 
   def create
