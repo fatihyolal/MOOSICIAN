@@ -5,15 +5,16 @@
     </div>
     <% @received_messages.each_with_index do |message, index| %>
       <% if message.first.present? %>
-              <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless message.index == @received_messages.length %>">
-                 <%= cl_image_tag message.last.user.photo.key %>
-                <div class="flex-grow-1 ms-3">
-                  <div class="details">
-                    <div class="name"> <%= message.last.user.first_name %> <%= message.last.user.last_name %></div>
-                    <div class="content"></i> <%= message.last.content  %></div>
-                    <div class="date"></i> <%= message.last.created_at.strftime("send at %I:%M%p - %m/%d/%Y")  %></div>
-                </div>
-              </div>
+        <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless message.index == @received_messages.length %>">
+          <%= cl_image_tag message.last.user.photo.key %>
+          <div class="flex-grow-1 ms-3">
+            <div class="details">
+              <div class="name"><%= message.last.user.first_name %> <%= message.last.user.last_name %></div>
+              <div class="content"><%= message.last.content %></div>
+              <div class="date"><%= message.last.created_at.strftime("sent at %I:%M%p - %m/%d/%Y") %></div>
+            </div>
+          </div>
+        </div>
       <% else %>
         <p>No new messages</p>
       <% end %>

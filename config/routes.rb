@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
+
   resources :likes, only: :destroy
   resources :profiles, only: %i[show]
   resources :chatrooms, only: %i[show index create] do
