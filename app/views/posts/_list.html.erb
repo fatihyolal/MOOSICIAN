@@ -1,0 +1,18 @@
+<%# some sort of an iteration %>
+<%# you take an array of Post instances (@posts) %>
+<%# and you create a _post.html.erb for each of them %>
+<div data-search-global-target="list">
+<p class="h3">
+  <% if params[:query].blank?%>
+  <%=pluralize posts.count , "post"  %> available
+  <% else %>
+  <%=pluralize posts.count , "result"  %> for <code> <%=params[:query] %></code>
+  <% end %>
+</p>
+
+  <div class="posts">
+    <%posts.each do |post| %>
+      <%= render "post" ,post: post%>
+      <% end  %>
+  </div>
+</div>
