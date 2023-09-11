@@ -1,4 +1,11 @@
 <div class="my-3" data-controller="comments">
+
+    <%# this will show iframe %>
+  <% if post.embed_url.present? %>
+              <div class="video-container">
+              <%= raw post.embed_url %>
+              </div>
+            <% end %>
   <div class="index-card" data-comments-target="indexCard">
     <h1><%= post.description %></h1>
     <% if post.audio_data.attached? %>
@@ -24,7 +31,16 @@
       <div class="d-flex align-items-center">
         <%= turbo_frame_tag dom_id(post, :like) do %>
           <div class="d-flex align-items-center">
+
+            <%# this will put a link for music url %>
+            <% if post.music_url.present? %>
+            <%= link_to post.music_url, target: "_blank" do %>
+              <i class=" fa-solid fa-arrow-up-right-from-square icon"></i>
+            <% end %>
+            <% end %>
+
             <h3 class="me-1 mb-0 text-color" data-likes-target="count"><%= post.likes.length %></h3>
+
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
                 <i class="fa-solid fa-heart icon fa-2xl me-1 btn-pressed"></i>
@@ -44,6 +60,9 @@
       </div>
     </div>
   </div>
+
+
+
   <div class="comment-container d-none" data-comments-target="commentsContainer">
     <%= render post.comments %>
   <div class="w-100">
