@@ -9,6 +9,13 @@ class PostsController < ApplicationController
       @posts = policy_scope(Post)
     end
     @comment = Comment.new
+
+
+    respond_to do |format|
+      format.html
+      format.text { render partial: "posts/list", locals: { posts: @posts }, formats: [:html] }
+    end
+
   end
 
 
@@ -34,4 +41,3 @@ class PostsController < ApplicationController
 
 
 end
-
