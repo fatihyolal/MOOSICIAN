@@ -8,6 +8,9 @@
     <% end %>
 
     <div class="d-flex align-items-center justify-content-between w-100 info-actions-bar">
+
+     <%= link_to "", post_path(post.id) %>
+
       <div class="d-flex">
         <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
         <div>
@@ -36,19 +39,29 @@
             <% end %>
           </div>
         <% end %>
-        <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-    Share
-  </a>
+        <h3 class="me-1 mb-0"><%= post.comments.length %></h3>
+        <i class="fa-solid fa-comment icon fa-2xl me-1" data-action="click->comments#display"></i>
+        <%= link_to "#" do %>
+        <% end %>
 
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li><a type="button" class="shareButton mx-2" tabindex="0" href="https://twitter.com/intent/tweet?text=" target="_blank" title="Share on Twitter" arial-label="Share on Twitter"><i class="fab fa-twitter" style="font-size:20px;"></i></a></li>
-    <li><a type="button" class="shareButton mx-2" tabindex="0" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" title="Share on Facebook" arial-label="Share on Facebook"><i class="fab fa-facebook-f" style="font-size:20px;"></i></a></li>
-    <li><a type="button" class="shareButton mx-2" tabindex="0" href="https://www.tumblr.com/widgets/share" target="_blank" title="Share on Tumblr" arial-label="Share on Tumblr"><i class="fab fa-tumblr style="font-size:20px;"></i></a></li>
-    <li><a type="button" class="shareButton mx-2" tabindex="0" href="https://pinterest.com/pin/create/button/?url=&media=" target="_blank" title="Share on Pinterest" arial-label="Share on Pinterest"><i class="fab fa-pinterest" style="font-size:20px;"></i></a></li>
-    <li><a type="button" class="shareButton mx-2" tabindex="0" href="mailto:?" target="_blank" title="Share via email" arial-label="Share via email"><i class="fa fa-envelope" style="font-size:20px;"></i></a></li>
-  </ul>
-</div>
+        <div class="dropdown">
+          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa-solid fa-share icon fa-2xl"></i>
+          </a>
+
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a type="button" class="shareButton mx-2" tabindex="0" href="https://twitter.com/intent/tweet?text=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>"  target="_blank" title="Share on Twitter" arial-label="Share on Twitter">
+        <i class="fab fa-twitter" style="font-size:20px;"></i></a>
+        <a type="button" class="shareButton mx-2" tabindex="0" href="https://www.facebook.com/sharer/sharer.php?u=<%= url_encode(post_url(post)) %>" target="_blank" title="Share on Facebook" arial-label="Share on Facebook">
+        <i class="fab fa-facebook-f" style="font-size:20px;"></i></a>
+        <a type="button" class="shareButton mx-2" tabindex="0" href="https://www.tumblr.com/widgets/share?title=<%= url_encode(post.description) %>&url=<%= url_encode(post_url(post)) %>" target="_blank" title="Share on Tumblr" arial-label="Share on Tumblr">
+        <i class="fab fa-tumblr style="font-size:20px;"></i></a>
+        <a type="button" class="shareButton mx-2" tabindex="0" href="https://api.whatsapp.com/send?text=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>" target="_blank" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+        <i class="fab fa-whatsapp" style="font-size:20px;"></i></a>
+        <a type="button" class="shareButton mx-2" tabindex="0" href="mailto:?subject=<%= url_encode("Check out this awesome post: #{post.description}") %>&body=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>" target="_blank" title="Share via email" arial-label="Share via email">
+        <i class="fa fa-envelope" style="font-size:20px;"></i></a>
+      </ul>
+   </div>
       </div>
     </div>
   </div>

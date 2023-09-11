@@ -52,4 +52,16 @@
 .dropdown-menu.show {
   display: inline-flex;
   padding: 10px;
+  background-color: white;
+}
+
+.dropdown {
+  // border-color: #93B5C6;
+  // border-style: dotted;
+  background-color: #C9CCD5;
+  border-radius: 20px;
+  &:hover {
+    color: white;
+    transition: 0.3s ease;
+  }
 }
