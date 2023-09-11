@@ -34,11 +34,11 @@ users5.save!
 
 
 
-chatrooms1 = Chatroom.create!
-chatrooms2 = Chatroom.create
-chatrooms3 = Chatroom.create
-chatrooms4 = Chatroom.create
-chatrooms5 = Chatroom.create
+chatrooms1 = Chatroom.create(user_1: users1, user_2: users2)
+chatrooms2 = Chatroom.create(user_1: users3, user_2: users4)
+chatrooms3 = Chatroom.create(user_1: users1, user_2: users3)
+chatrooms4 = Chatroom.create(user_1: users4, user_2: users5)
+chatrooms5 = Chatroom.create(user_1: users4, user_2: users5)
 
    Message.create!(content: "how you doing bro",chatroom:chatrooms1,user:users1)
    Message.create!(content: "Long time noo speak",chatroom:chatrooms1,user:users2)

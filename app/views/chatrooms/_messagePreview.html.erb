@@ -7,7 +7,7 @@
         <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
         <div class="details">
             <div class="name"> <%= message.user.first_name %> <%= message.user.last_name %>
-              <%= link_to chatroom.last_messages(current_user).last.user.username, chatroom_path(chatroom), data: { action: "click->chat-details#show:prevent" } %>
+              <%= link_to message.user.username, chatroom_path(message.chatroom), data: { action: "click->chat-details#show:prevent" } %>
             </div>
             <div class="date"></i> <%= message.created_at.strftime("received at %I:%M%p on %m/%d/%Y")  %>
           </div>

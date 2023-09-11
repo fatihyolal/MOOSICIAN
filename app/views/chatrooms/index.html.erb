@@ -2,10 +2,10 @@
   <div class="col-xl-3"> <%= render "shared/profile_vertical" %> </div>
 
   <div class="col-xl-3">
-    <% @last_messages.each do |chatroom,message|  %>
-      <% if chatroom.last_messages(current_user).any?  %>
+    <% @last_messages.each do |message|  %>
+      <% unless message.nil?  %>
         <div class="container py-1">
-        <%= render partial: "messagePreview", locals: { message: message, chatroom: chatroom } %>
+        <%= render partial: "messagePreview", locals: { message: message, chatroom: message.chatroom } %>
           </div>
       <% end %>
     <% end  %>
