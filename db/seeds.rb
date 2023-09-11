@@ -1,4 +1,12 @@
 require "open-uri"
+
+Message.destroy_all
+Comment.destroy_all
+Like.destroy_all
+Post.destroy_all
+User.destroy_all
+
+
 users1 = User.new(email: "kanyecrazy2023@gmail.com", password: "12345678",password_confirmation:"12345678" ,username:"@Kanye_crzy" ,
 bio:" - All Gas No Breaks - Upcoming artist with sick beeeats too ,yoo! - Rapper/Beats",location: "Chicago,Illinois",admin:true,first_name:"Kanye",last_name:"East")
 users1.photo.attach(io: URI.open("https://imageio.forbes.com/specials-images/imageserve/5ed00f17d4a99d0006d2e738/0x0.jpg?format=jpg&crop=4666,4663,x154,y651,safe&height=416&width=416&fit=bounds"), filename: "nes1.png", content_type: "image/png")
