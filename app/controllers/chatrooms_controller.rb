@@ -32,6 +32,7 @@ class ChatroomsController < ApplicationController
     # end
     @chatrooms = policy_scope(Chatroom)
     @last_messages = []
+    # raise
     @chatrooms.each do |chatroom|
       @last_messages << chatroom.messages.last
     end

@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
-  resources :chatrooms, only: :show do
 
   resources :likes, only: :destroy
   resources :profiles, only: %i[show]

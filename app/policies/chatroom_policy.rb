@@ -1,7 +1,8 @@
 class ChatroomPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      user.admin? ? scope.all : scope.where(user_2: user)
+      sql_subquery = "user_1 = :query OR user_2 = :query"
+      user.admin? ? scope.all : scope.where(sql_subquery, query: user.id)
     end
   end
 
