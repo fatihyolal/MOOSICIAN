@@ -11,6 +11,10 @@ class PostsController < ApplicationController
     @comment = Comment.new
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def create
     #  result = Cloudinary::Uploader.upload(params[:post][:attachment])
      @post = Post.new(post_params)
@@ -33,8 +37,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:description, :audio_data)
+    params.require(:post).permit(:description, :audio_data,)
   end
-
-
 end

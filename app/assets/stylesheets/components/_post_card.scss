@@ -48,3 +48,8 @@
     background-color: $blue-pink;
   }
 }
+
+.dropdown-menu.show {
+  display: inline-flex;
+  padding: 10px;
+}

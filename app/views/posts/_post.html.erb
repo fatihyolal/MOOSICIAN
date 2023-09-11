@@ -3,6 +3,8 @@
     <h1><%= post.description %></h1>
     <% if post.audio_data.attached? %>
     <%= audio_tag post.audio_data.url, controls:true %>
+
+    <%= audio_tag @post.audio_data.url, controls: true if @post.audio_data.attached? %>
     <% end %>
 
     <div class="d-flex align-items-center justify-content-between w-100 info-actions-bar">
@@ -34,11 +36,19 @@
             <% end %>
           </div>
         <% end %>
-        <h3 class="me-1 mb-0"><%= post.comments.length %></h3>
-        <i class="fa-solid fa-comment icon fa-2xl me-1" data-action="click->comments#display"></i>
-        <%= link_to "#" do %>
-          <i class="fa-solid fa-share icon fa-2xl"></i>
-        <% end %>
+        <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Share
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a type="button" class="shareButton mx-2" tabindex="0" href="https://twitter.com/intent/tweet?text=" target="_blank" title="Share on Twitter" arial-label="Share on Twitter"><i class="fab fa-twitter" style="font-size:20px;"></i></a></li>
+    <li><a type="button" class="shareButton mx-2" tabindex="0" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank" title="Share on Facebook" arial-label="Share on Facebook"><i class="fab fa-facebook-f" style="font-size:20px;"></i></a></li>
+    <li><a type="button" class="shareButton mx-2" tabindex="0" href="https://www.tumblr.com/widgets/share" target="_blank" title="Share on Tumblr" arial-label="Share on Tumblr"><i class="fab fa-tumblr style="font-size:20px;"></i></a></li>
+    <li><a type="button" class="shareButton mx-2" tabindex="0" href="https://pinterest.com/pin/create/button/?url=&media=" target="_blank" title="Share on Pinterest" arial-label="Share on Pinterest"><i class="fab fa-pinterest" style="font-size:20px;"></i></a></li>
+    <li><a type="button" class="shareButton mx-2" tabindex="0" href="mailto:?" target="_blank" title="Share via email" arial-label="Share via email"><i class="fa fa-envelope" style="font-size:20px;"></i></a></li>
+  </ul>
+</div>
       </div>
     </div>
   </div>
