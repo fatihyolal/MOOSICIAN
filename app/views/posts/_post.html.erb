@@ -1,5 +1,29 @@
 <div class="my-3" data-controller="comments">
   <div class="index-card" data-comments-target="indexCard">
+  <div class = "w-100">
+
+    <%= link_to "", post_path(post.id) %>
+
+    <% if current_user.profile %>
+      <%= link_to profile_path(post.user.profile) do %>
+
+        <div class="d-flex">
+          <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
+          <div>
+            <div>
+              <p class="name-username">
+                <b><%= post.user.first_name %>
+                <%= post.user.last_name %></b>
+                @<%= post.user.username %>
+              </p>
+            </div>
+            <p class="name-username secondary-text" style="font-size: 14px;"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i>
+            </p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
 
     <%# this will show iframe %>
     <% if post.embed_url.present? %>
@@ -13,29 +37,7 @@
     <%= audio_tag post.audio_data.url, controls:true %>
     <% end %>
 
-    <div class="d-flex align-items-center justify-content-between w-100 info-actions-bar">
 
-     <%= link_to "", post_path(post.id) %>
-
-    <% if current_user.profile %>
-
-      <%= link_to profile_path(post.user.profile) do %>
-
-      <div class="d-flex">
-        <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
-        <div>
-          <div>
-          <p class="name-username">
-            <b><%= post.user.first_name %>
-            <%= post.user.last_name %></b>
-            @<%= post.user.username %>
-          </p>
-          </div>
-          <p class="name-username secondary-text" style="font-size: 14px;"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
-        </div>
-      </div>
-      <% end %>
-  <% end %>
 
       <div class="d-flex align-items-center">
         <%= turbo_frame_tag dom_id(post, :like) do %>
@@ -48,7 +50,7 @@
               <i class=" fa-solid fa-arrow-up-right-from-square icon fa-xl me-1"></i>
             <% end %>
             <% end %>
-    
+
             <h3 class="me-1 mb-0 text-color"><%= post.likes.length %></h3>
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
@@ -87,6 +89,7 @@
       </div>
     </div>
   </div>
+
   <div class="comment-container d-none" data-comments-target="commentsContainer">
     <%= render post.comments %>
   <div class="w-100">
