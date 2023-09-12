@@ -3,8 +3,9 @@
     <div class="pb-2 comment-card w-100 d-flex justify-content-center">
       <h3 class="name-username">Messages</h3>
     </div>
-    <% if @received_messages.empty? %>
+    <% unless @received_messages.empty? %>
       <% @received_messages.each_with_index do |message, index| %>
+        <%= link_to chatroom_path(Chatroom.find(message[0].chatroom_id)) do %>
           <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless message.index == @received_messages.length %>">
             <%= cl_image_tag message.last.user.photo.key %>
             <div class="flex-grow-1 ms-3">
@@ -15,6 +16,7 @@
               </div>
             </div>
           </div>
+        <% end %>
       <% end %>
     <% else %>
       <p class="secondary-text">No new messages</p>
