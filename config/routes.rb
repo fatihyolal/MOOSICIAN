@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'globalsearch/search'
   devise_for :users
   root to: "posts#index"
 

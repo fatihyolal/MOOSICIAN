@@ -5,14 +5,10 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @comment.user = current_user
     authorize @comment
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to root_path }
-        format.json
-      else
-        format.html { redirect_to root_path, status: :unprocessable_entity }
-        format.json
-      end
+    if @comment.save
+      redirect_to root_path
+    else
+      redirect_to root_path, status: :unprocessable_entity
     end
   end
 
