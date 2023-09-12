@@ -57,27 +57,42 @@ chatrooms5 = Chatroom.create(user_1: users4, user_2: users5)
    posts1 = Post.create!(title: "whats on your mind moosician",
    description: "I WISH I WAS RICHER - comming out soon, looking for someone to feature...",
    category: "rap",
-   user:users1)
+   user:users1,
+    music_url:"https://youtu.be/BJsd4OKeA20?si=nlBHzyJBlGJZ2B2f",
+    embed_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/rYEDA3JcQqw?si=bS39XugKVOB5jcqb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+  )
 
    posts2 = Post.create(title: "whats on your mind moosician",
    description: "New track droping sooon, here's a sample.",
    category: "rap",
-   user:users2)
+   user:users2,
+   music_url:"https://youtu.be/rquKJmUwCuU?si=XEFkdT8JmzK5P0hu",
+   embed_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/cH4E_t3m3xM?si=DTyMLWBmLSGWFkty" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+  )
 
    posts3 = Post.create(title: "whats on your mind moosician",
    description: "Trap beat I made last night, what do you guys think?",
    category: "rap",
-   user:users3)
+   user:users3,
+   music_url:"https://youtu.be/bUdZLh_rODE?si=ZSrA6TOfnlexmIp_",
+   embed_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/WcIcVapfqXw?si=nLgmJizB1yJLRDeX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+  )
 
    posts4= Post.create(title: "whats on your mind moosician",
    description: "Need a collab who makes beats, looking for something with a Dancehall vibe.",
    category: "rap",
-   user:users4)
+   user:users4,
+   music_url:"https://youtu.be/Q8RBX06xtiE?si=LIGoN3WIGyTOU7oI",
+   embed_url:'<iframe width="560" height="315" src="https://www.youtube.com/embed/Q8RBX06xtiE?si=LIGoN3WIGyTOU7oI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+  )
 
    posts5= Post.create(title: "whats on your mind moosician",
    description: "Wrote these lyrics for this track but can't get the mix right, any sound engineers wanna help?",
    category: "jazz",
-   user:users5)
+   user:users5,
+   music_url:"https://youtu.be/o2Vw4llfoQ8?si=AC8W1EFWDSzoD_z2",
+   embed_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/o2Vw4llfoQ8?si=AC8W1EFWDSzoD_z2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+  )
 
    Comment.create!(content:"leet me see what i can do for you boss",user:users1,post:posts1)
    Comment.create(content:"I am a huge fan man keep it up",user:users2,post:posts1)
