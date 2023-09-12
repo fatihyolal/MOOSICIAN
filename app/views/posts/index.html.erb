@@ -1,10 +1,12 @@
 <div class="container" >
   <div class="row">
     <div class="col-3 p-3">
-    <%= render "shared/profile_vertical" %>
+    <%= render "shared/profile_vertical"%>
     </div>
     <div class="col-6 px-3" >
 
+    <%# form to post description, link and audio %>
+    <div class="col-6 px-3">
       <%= form_with(model: @post, url: posts_path, remote: true, html: { multipart: true, class: "form-post" }) do |form| %>
         <div class="d-flex flex-column align-items-end w-100 mt-3 index-card">
           <% if @post.errors.any? %>
@@ -13,6 +15,9 @@
             <% end %>
           <% end %>
           <%= form.text_area :description, class: "form-control new-post-textfield border-0", placeholder: "What tunes on your mind moosician?" %>
+          <%= form.text_field :embed_url, class: "form-control new-post-textfield border-0", placeholder: "embedded link for the music" %>
+          <%= form.text_field :music_url, class: "form-control new-post-textfield border-0", placeholder: "url link for music" %>
+
           <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
           <%= form.file_field :audio_data, id: "fileInput", class: "input-file" %>
           <div class="icon-container">

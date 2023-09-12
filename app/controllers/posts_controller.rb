@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:description, :audio_data)
+    params.require(:post).permit(:description, :audio_data, :music_url, :embed_url)
   end
 
 
