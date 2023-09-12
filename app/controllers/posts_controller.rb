@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    #  result = Cloudinary::Uploader.upload(params[:post][:attachment])
+    #  result = Cloudinary::Uploader.upload(params[:post][:attachment]),
      @post = Post.new(post_params)
     #  @post.attachment_url = result['secure_url']
      @post.user = current_user
