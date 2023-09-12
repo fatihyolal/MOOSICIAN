@@ -54,13 +54,13 @@
 .dropdown-menu.show {
   display: inline-flex;
   padding: 10px;
-  background-color: #159895;
+  background-color: $coolgrey800;
 }
 
 .dropdown {
   // border-color: #93B5C6;
   // border-style: dotted;
-  background-color: $coolgrey700;
+
   border-radius: 20px;
   &:hover {
     color: white;

@@ -1,23 +1,12 @@
-<div class="container chatroom" data-controller = "chatroom-subscription" data-chatroom-subscription-chatroom-id-value=<%= @chatroom.id %>>
-  <h1>#<%= @chatroom.id %></h1>
+<div class="container chatroom mt-3" data-controller = "chatroom-subscription" data-chatroom-subscription-chatroom-id-value=<%= @chatroom.id %>>
+  <h1>
+    <%= User.find(@chatroom.user_1).first_name unless User.find(@chatroom.user_1).first_name == current_user.first_name %><%= User.find(@chatroom.user_1).last_name unless User.find(@chatroom.user_1).last_name == current_user.last_name %>
+    <%= User.find(@chatroom.user_2).first_name unless User.find(@chatroom.user_2).first_name == current_user.first_name %><%= User.find(@chatroom.user_2).last_name unless User.find(@chatroom.user_2).last_name == current_user.last_name %>
+  </h1>
     <div class="messages" data-chatroom-subscription-target = "messages">
-    <% @chatroom.messages.each do |message| %>
-      <%
-=begin%>
- <div id="message-<%= message.id %>">
-        <small>
-          <strong><%= message.user.username %></strong>
-          <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
-        </small>
-        <p><%= message.content %></p>
-      </div>
-<%
-=end%>
-
-    <% @chatroom.messages.each do |message| %>
-     <%= render "messages/message", message: message %>
-     <% end %>
-    <% end %>
+      <% @chatroom.messages.each do |message| %>
+        <%= render "messages/message", message: message %>
+      <% end %>
     </div>
 
     <%= simple_form_for [@chatroom, @message],
@@ -25,7 +14,7 @@
     %>
     <%= f.input :content,
       label: false,
-      placeholder: "Message ##{@chatroom.id}",
+      placeholder: "Type a message...",
       wrapper_html: {class: "flex-grow-1"},
       input_html: {class: "w-100 chatroom-text-input"}
     %>
