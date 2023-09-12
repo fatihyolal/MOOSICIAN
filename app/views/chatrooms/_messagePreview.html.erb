@@ -5,7 +5,7 @@
       </div>
       <div class="flex-grow-1 ms-3">
         <div class="details">
-            <div class="name"> <%= message.user.first_name %> <%= message.user.last_name %>
+            <div class="name"> <%= User.find(message.chatroom.user_1).first_name unless User.find(message.chatroom.user_1).first_name == current_user.first_name %> <%= User.find(message.chatroom.user_1).last_name unless User.find(message.chatroom.user_1).last_name == current_user.last_name %>
               <%= link_to message.user.username, chatroom_path(message.chatroom), data: { action: "click->chat-details#show:prevent" } %>
             </div>
             <div class="date"></i> <%= message.created_at.strftime("received at %I:%M%p on %m/%d/%Y")  %>
