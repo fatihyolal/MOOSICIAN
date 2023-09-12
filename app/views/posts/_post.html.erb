@@ -1,28 +1,28 @@
 <div class="my-3" data-controller="comments">
   <div class="index-card" data-comments-target="indexCard">
-  <div >
+  <div class = "w-100">
 
-     <%= link_to "", post_path(post.id) %>
+    <%= link_to "", post_path(post.id) %>
 
     <% if current_user.profile %>
-
       <%= link_to profile_path(post.user.profile) do %>
 
-      <div class="d-flex">
-        <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
-        <div>
+        <div class="d-flex">
+          <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
           <div>
-          <p class="name-username">
-            <b><%= post.user.first_name %>
-            <%= post.user.last_name %></b>
-            @<%= post.user.username %>
-          </p>
+            <div>
+              <p class="name-username">
+                <b><%= post.user.first_name %>
+                <%= post.user.last_name %></b>
+                @<%= post.user.username %>
+              </p>
+            </div>
+            <p class="name-username secondary-text" style="font-size: 14px;"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i>
+            </p>
           </div>
-          <p class="name-username secondary-text" style="font-size: 14px;"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
         </div>
-      </div>
       <% end %>
-  <% end %>
+    <% end %>
 
 
     <%# this will show iframe %>
@@ -89,6 +89,7 @@
       </div>
     </div>
   </div>
+
   <div class="comment-container d-none" data-comments-target="commentsContainer">
     <%= render post.comments %>
   <div class="w-100">
