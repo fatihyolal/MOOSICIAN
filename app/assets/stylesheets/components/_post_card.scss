@@ -60,7 +60,7 @@
 .dropdown {
   // border-color: #93B5C6;
   // border-style: dotted;
-  background-color: #C9CCD5;
+  background-color: $coolgrey700;
   border-radius: 20px;
   &:hover {
     color: white;
@@ -74,4 +74,15 @@
 
 .secondary-text {
   color: $neutralgrey400;
+}
+
+iframe{
+  width: 100%;
+  height: 150px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px $coolgrey700;
+}
+
+.video-container{
+  width: 100%;
 }
