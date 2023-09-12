@@ -1,20 +1,23 @@
-<%= link_to chatroom_path(message.chatroom), data: { action: "click->chat-details#show:prevent" } do %>
+<% chatroom = message.chatroom %>
+<% user_1 = User.find(chatroom.user_1) %>
+<% user_2 = User.find(chatroom.user_2) %>
+
+<%= link_to chatroom_path(chatroom), data: { action: "click->chat-details#show:prevent" } do %>
   <div class="message-card col-3 col-m-3 col-xs-16">
-      <div class="d-flex p-4 w-100">
-        <div class="d-flex align-items-center">
-          <%= cl_image_tag User.find(message.chatroom.user_1).photo.key unless User.find(message.chatroom.user_1) == current_user %>
-          <%= cl_image_tag User.find(message.chatroom.user_2).photo.key unless User.find(message.chatroom.user_2) == current_user %>
-        </div>
-        <div class="flex-grow-1 ms-3">
-          <div class="details">
-              <div class="name">
-                <%= User.find(message.chatroom.user_1).first_name unless User.find(message.chatroom.user_1).first_name == current_user.first_name %> <%= User.find(message.chatroom.user_1).last_name unless User.find(message.chatroom.user_1).last_name == current_user.last_name %>
-                <%= User.find(message.chatroom.user_2).first_name unless User.find(message.chatroom.user_2).first_name == current_user.first_name %> <%= User.find(message.chatroom.user_2).last_name unless User.find(message.chatroom.user_2).last_name == current_user.last_name %>
-                <%= User.find(message.chatroom.user_1).username unless User.find(message.chatroom.user_1).username == current_user.username %>
-                @<%= User.find(message.chatroom.user_2).username unless User.find(message.chatroom.user_2).username == current_user.username %>
-              </div>
-              <div class="date"></i> <%= message.created_at.strftime("received at %I:%M%p on %m/%d/%Y")  %>
-            </div>
+    <div class="d-flex p-4 w-100 mb-3">
+      <div class="d-flex align-items-center">
+        <%= cl_image_tag(user_1.photo.key) unless user_1 == current_user %>
+        <%= cl_image_tag(user_2.photo.key) unless user_2 == current_user %>
+      </div>
+      <div class="flex-grow-1 ms-3">
+        <div class="details">
+          <div class="name">
+            <%= "#{user_1.first_name} #{user_1.last_name}" unless user_1 == current_user %>
+            <%= "#{user_2.first_name} #{user_2.last_name}" unless user_2 == current_user %>
+            <%= user_1.username_with_at unless user_1 == current_user %>
+            <%= user_2.username_with_at unless user_2 == current_user %>
+          </div>
+          <div class="date"><i><%= message.created_at.strftime("received at %I:%M%p on %m/%d/%Y") %></i></div>
         </div>
       </div>
     </div>
