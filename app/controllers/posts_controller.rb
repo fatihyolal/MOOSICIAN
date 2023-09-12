@@ -37,9 +37,11 @@ class PostsController < ApplicationController
         format.html { redirect_to posts_path }
         format.js
       end
-      else
-       @posts = policy_scope(Post)
-       render :index, status: :unprocessable_entity
+    else
+      @comment = Comment.new
+      @received_messages = current_user.chatrooms.map { |chatroom| chatroom.messages.where.not(user: current_user) }
+      @posts = policy_scope(Post)
+      render :index, status: :unprocessable_entity
     end
        authorize @post
   end
@@ -47,7 +49,7 @@ class PostsController < ApplicationController
    private
 
   def post_params
-    params.require(:post).permit(:description, :audio_data,)
+    params.require(:post).permit(:description, :audio_data, :music_url, :embed_url)
   end
 
 end

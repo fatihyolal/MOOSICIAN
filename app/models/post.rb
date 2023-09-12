@@ -7,6 +7,13 @@ class Post < ApplicationRecord
   # validates :title, presence: true
   validates :description, presence: true
 
+  VALID_URL_REGEX = /\A(?:(?:http|https):\/\/)?
+                    (?:[\wZ]+(?::[\wZ]+)?@)?
+                    (?:[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})
+                    (?:\:[0-9]{1,5})?
+                    (?:\/\S*)?\z/x
+ validates_format_of :music_url, with: VALID_URL_REGEX, message: 'is not a valid URL'
+
   # validates :category, inclusion: { in: ["rock", "jazz", "blues", "hiphop", "rap"] }
 
   attr_accessor :attachment_url
@@ -15,4 +22,3 @@ class Post < ApplicationRecord
     self.likes.find_by(user: user).present?
   end
 end
-

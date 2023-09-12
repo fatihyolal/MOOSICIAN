@@ -13,6 +13,9 @@
             <% end %>
           <% end %>
           <%= form.text_area :description, class: "form-control new-post-textfield border-0", placeholder: "What tunes on your mind moosician?" %>
+
+          <%= form.text_field :embed_url, class: "form-control new-post-textfield border-0", placeholder: "embedded link for the music" %>
+          <%= form.text_field :music_url, class: "form-control new-post-textfield border-0", placeholder: "url link for music" %>
           <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
           <%= form.file_field :audio_data, id: "fileInput", class: "input-file" %>
           <div class="icon-container">
