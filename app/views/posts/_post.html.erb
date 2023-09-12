@@ -73,15 +73,15 @@
 
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
         <a type="button" class="shareButton mx-2" tabindex="0" href="https://twitter.com/intent/tweet?text=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>"  target="_blank" title="Share on Twitter" arial-label="Share on Twitter">
-        <i class="fab fa-twitter" style="font-size:20px;"></i></a>
+        <i class="fab fa-twitter icon" style="font-size:20px;"></i></a>
         <a type="button" class="shareButton mx-2" tabindex="0" href="https://www.facebook.com/sharer/sharer.php?u=<%= url_encode(post_url(post)) %>" target="_blank" title="Share on Facebook" arial-label="Share on Facebook">
-        <i class="fab fa-facebook-f" style="font-size:20px;"></i></a>
+        <i class="fab fa-facebook-f icon" style="font-size:20px;"></i></a>
         <a type="button" class="shareButton mx-2" tabindex="0" href="https://www.tumblr.com/widgets/share?title=<%= url_encode(post.description) %>&url=<%= url_encode(post_url(post)) %>" target="_blank" title="Share on Tumblr" arial-label="Share on Tumblr">
-        <i class="fab fa-tumblr style="font-size:20px;"></i></a>
+        <i class="fab fa-tumblr icon" style="font-size:20px;"></i></a>
         <a type="button" class="shareButton mx-2" tabindex="0" href="https://api.whatsapp.com/send?text=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>" target="_blank" title="Share on WhatsApp" aria-label="Share on WhatsApp">
-        <i class="fab fa-whatsapp" style="font-size:20px;"></i></a>
+        <i class="fab fa-whatsapp icon" style="font-size:20px;"></i></a>
         <a type="button" class="shareButton mx-2" tabindex="0" href="mailto:?subject=<%= url_encode("Check out this awesome post: #{post.description}") %>&body=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>" target="_blank" title="Share via email" arial-label="Share via email">
-        <i class="fa fa-envelope" style="font-size:20px;"></i></a>
+        <i class="fa fa-envelope icon" style="font-size:20px;"></i></a>
       </ul>
    </div>
       </div>

@@ -5,6 +5,7 @@ Comment.destroy_all
 Like.destroy_all
 Post.destroy_all
 User.destroy_all
+Chatroom.destroy_all
 
 
 users1 = User.new(email: "kanyecrazy2023@gmail.com", password: "12345678",password_confirmation:"12345678" ,username:"Kanye_crzy" ,
@@ -12,7 +13,7 @@ bio:" - All Gas No Breaks - Upcoming artist with sick beeeats too ,yoo! - Rapper
 users1.photo.attach(io: URI.open("https://imageio.forbes.com/specials-images/imageserve/5ed00f17d4a99d0006d2e738/0x0.jpg?format=jpg&crop=4666,4663,x154,y651,safe&height=416&width=416&fit=bounds"), filename: "nes1.png", content_type: "image/png")
 users1.save!
 
-users2 = User.new(email: "yungthugga022@gmail.com", password:"12345678", password_confirmation:"12345678",username:"Youngthug__01" ,
+users2 = User.new(email: "yungthugga022@gmail.com", password:"12345678", password_confirmation:"12345678",username:"Youngthug_01" ,
 bio:" I’m the type of person to put myself in everybody else’s shoes - Rapper", location: "Thug's World", first_name:"Young",last_name:"Thug")
 users2.photo.attach(io: URI.open("https://img.buzzfeed.com/buzzfeed-static/complex/images/uwr3uur8lmnj79v40c8j/young-thug-bumbershoot-suzi-pratt.jpg?output-format=jpg&output-quality=auto"), filename: "nes2.png", content_type: "image/png")
 users2.save!
@@ -34,11 +35,11 @@ users5.save!
 
 
 
-chatrooms1 = Chatroom.create(user_1: users1, user_2: users2)
-chatrooms2 = Chatroom.create(user_1: users3, user_2: users4)
-chatrooms3 = Chatroom.create(user_1: users1, user_2: users3)
-chatrooms4 = Chatroom.create(user_1: users4, user_2: users5)
-chatrooms5 = Chatroom.create(user_1: users4, user_2: users5)
+chatrooms1 = Chatroom.create!(user_1: users1.id, user_2: users2.id)
+chatrooms2 = Chatroom.create!(user_1: users3.id, user_2: users4.id)
+chatrooms3 = Chatroom.create!(user_1: users1.id, user_2: users3.id)
+chatrooms4 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
+chatrooms5 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
 
    Message.create!(content: "how you doing bro",chatroom:chatrooms1,user:users1)
    Message.create!(content: "Long time noo speak",chatroom:chatrooms1,user:users2)
