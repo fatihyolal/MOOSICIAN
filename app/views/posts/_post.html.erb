@@ -1,4 +1,11 @@
 <div class="my-3" data-controller="comments">
+
+    <%# this will show iframe %>
+  <% if post.embed_url.present? %>
+              <div class="video-container">
+              <%= raw post.embed_url %>
+              </div>
+            <% end %>
   <div class="index-card" data-comments-target="indexCard">
     <h1><%= post.description %></h1>
     <% if post.audio_data.attached? %>
@@ -14,7 +21,7 @@
           <p class="name-username">
             <b><%= post.user.first_name %>
             <%= post.user.last_name %></b>
-            <%= post.user.username %>
+            @<%= post.user.username %>
           </p>
           </div>
           <p class="name-username secondary-text"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
@@ -24,7 +31,16 @@
       <div class="d-flex align-items-center">
         <%= turbo_frame_tag dom_id(post, :like) do %>
           <div class="d-flex align-items-center">
-            <h3 class="me-1 mb-0 text-color"><%= post.likes.length %></h3>
+
+            <%# this will put a link for music url %>
+            <% if post.music_url.present? %>
+            <%= link_to post.music_url, target: "_blank" do %>
+              <i class=" fa-solid fa-arrow-up-right-from-square icon"></i>
+            <% end %>
+            <% end %>
+
+            <h3 class="me-1 mb-0 text-color" data-likes-target="count"><%= post.likes.length %></h3>
+
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
                 <i class="fa-solid fa-heart icon fa-2xl me-1 btn-pressed"></i>
@@ -44,10 +60,20 @@
       </div>
     </div>
   </div>
+
+
+
   <div class="comment-container d-none" data-comments-target="commentsContainer">
     <%= render post.comments %>
   <div class="w-100">
-    <%= render "comments/form", post: post, comment: @comment %>
+  <% if @comment.present? %>
+    <%= simple_form_for [post, @comment], html: {class: "d-flex justify-content-between align-items-center"} do |f| %>
+      <%= f.input :content, input_html: {class: "w-100 comment-text-input"}, wrapper_html: {class: "w-100"}, label: false %>
+      <%= f.button :button, class: "comment-form-btn" do %>
+        <i class="fa-solid fa-paper-plane fa-2xl icon"></i>
+      <% end %>
+   <% end %>
+  <% end %>
   </div>
   </div>
 </div>

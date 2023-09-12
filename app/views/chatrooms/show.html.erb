@@ -15,8 +15,8 @@
 =end%>
 
     <% @chatroom.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-    <% end %>
+     <%= render "messages/message", message: message %>
+     <% end %>
     <% end %>
     </div>
 
@@ -26,11 +26,10 @@
     <%= f.input :content,
       label: false,
       placeholder: "Message ##{@chatroom.id}",
-      wrapper_html: {class: "flex-grow-1"},
-      input_html: {class: "w-100 chatroom-text-input"}
+      wrapper_html: {class: "flex-grow-1"}
     %>
-    <%= f.button :button, class: "chatroom-form-btn" do %>
-      <i class="fa-solid fa-paper-plane fa-2xl icon"></i>
-    <% end %>
+    <%= f.submit "Send", class: "btn btn-primary mb-3" %>
     <% end %>
 </div>
+
+

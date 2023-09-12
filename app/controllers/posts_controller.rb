@@ -9,7 +9,6 @@ class PostsController < ApplicationController
       @posts = policy_scope(Post)
     end
     @comment = Comment.new
-    @received_messages = current_user.chatrooms.map { |chatroom| chatroom.messages.where.not(user: current_user) }
   end
 
   def create
@@ -34,7 +33,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:description, :audio_data)
+    params.require(:post).permit(:description, :audio_data, :music_url, :embed_url)
   end
 
 
