@@ -1,12 +1,12 @@
 
-html,body{
-  height: 100%;
-}
+// html,body{
+//   height: 100%;
+// }
 
-body{
-  display: flex;
-  flex-direction: column;
-}
+// body{
+//   display: flex;
+//   flex-direction: column;
+// }
 
 .content{
   flex:1 0 auto;
@@ -18,4 +18,10 @@ body{
   padding: 20px;
   text-align: center;
   background-color: $coolgrey800;
+}
+
+.page-container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
 }

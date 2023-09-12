@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_08_123611) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_11_124719) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,6 +45,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_123611) do
   create_table "chatrooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_1"
+    t.integer "user_2"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -83,6 +85,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_08_123611) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "music_url"
+    t.string "embed_url"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

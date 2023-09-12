@@ -17,23 +17,25 @@
           <%= form.file_field :audio_data, id: "fileInput", class: "input-file" %>
           <div class="icon-container">
           <label class="control-label" for="fileInput">
-            <i class="fa-solid fa-paperclip fa-2xl icon"></i>
+            <i class="fa-solid fa-paperclip fa-xl icon"></i>
           </label>
           <button type="submit" class="remove-btn-style">
-            <i class="fa-solid fa-paper-plane fa-2xl icon" id="sendIcon"></i>
+            <i class="fa-solid fa-paper-plane fa-xl icon" id="sendIcon"></i>
           </button>
           </div>
           </div>
       <% end %>
 
       <div data-search-global-target="list">
-      <%= render @posts %>
-        </div>
-=======
-      <% @posts.each do |post| %>
-        <%= render "posts/post", post: post %>
-      <% end %>
+        <%= render @posts %>
+      </div>
+      <%# <% @posts.each do |post| %>
+        <%# <%= render "posts/post", post: post %>
+      <%# <% end %>
 
+      </div>
+      <div class="col-3 px-3">
+        <%= render "shared/message" %>
       </div>
     </div>
   </div>
