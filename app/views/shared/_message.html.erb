@@ -3,16 +3,16 @@
     <div class="pb-2 comment-card w-100 d-flex justify-content-center">
       <h3 class="name-username">Messages</h3>
     </div>
-    <% unless @received_messages.empty? %>
-      <% @received_messages.each_with_index do |message, index| %>
-        <%= link_to chatroom_path(Chatroom.find(message[0].chatroom_id)) do %>
-          <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless message.index == @received_messages.length %>">
-            <%= cl_image_tag message.last.user.photo.key %>
+    <% unless @last_messages.empty? %>
+      <% @last_messages.each_with_index do |message, index| %>
+        <%= link_to chatroom_path(Chatroom.find(message.chatroom_id)) do %>
+          <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless index == @last_messages.length %>">
+            <%= cl_image_tag message.user.photo.key %>
             <div class="flex-grow-1 ms-3">
               <div class="details">
-                <div class="name"><%= message.last.user.first_name %> <%= message.last.user.last_name %></div>
-                <div class="content"><%= message.last.content %></div>
-                <div class="date"><%= message.last.created_at.strftime("sent at %I:%M%p - %m/%d/%Y") %></div>
+                <div class="name"><%= message.user.first_name %> <%= message.user.last_name %></div>
+                <div class="content"><%= message.content %></div>
+                <div class="date"><%= message.created_at.strftime("sent at %I:%M%p - %m/%d/%Y") %></div>
               </div>
             </div>
           </div>
