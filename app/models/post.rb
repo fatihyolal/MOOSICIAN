@@ -22,3 +22,5 @@ class Post < ApplicationRecord
     self.likes.find_by(user: user).present?
   end
 end
+
+#test
