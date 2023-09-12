@@ -1,9 +1,9 @@
 .comment-card {
-  border-bottom: 1px solid darkgray;
+  border-bottom: 1px solid $neutralgrey300;
 }
 
 .comment-container {
-  background-color: $blue-pink;
+  background-color: $coolgrey700;
   border-radius: 0 0 20px 20px;
   padding-left: 20px;
   padding-right: 20px;
@@ -16,13 +16,13 @@
 }
 
 .comment-text-input {
-  background-color: $blue-pink;
+  background-color: $coolgrey700;
   border-radius: 20px;
   margin-top: 15px;
   border: none;
   &:focus {
     box-shadow: none;
-    background-color: $pink-blue;
+    background-color: $coolgrey800;
   }
 }
 
@@ -33,11 +33,11 @@
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 8px;
-  background-color: $blue-pink;
+  background-color: $coolgrey700;
   border: 0;
-  color:black;
+  color: $neutralgrey200;
 }
 
 .btn-pressed {
-  color: white;
+  color: $primaryteal;
 }

@@ -1,4 +1,12 @@
 require "open-uri"
+
+Message.destroy_all
+Comment.destroy_all
+Like.destroy_all
+Post.destroy_all
+User.destroy_all
+
+
 users1 = User.new(email: "kanyecrazy2023@gmail.com", password: "12345678",password_confirmation:"12345678" ,username:"@Kanye_crzy" ,
 bio:" - All Gas No Breaks - Upcoming artist with sick beeeats too ,yoo! - Rapper/Beats",location: "Chicago,Illinois",admin:true,first_name:"Kanye",last_name:"East")
 users1.photo.attach(io: URI.open("https://imageio.forbes.com/specials-images/imageserve/5ed00f17d4a99d0006d2e738/0x0.jpg?format=jpg&crop=4666,4663,x154,y651,safe&height=416&width=416&fit=bounds"), filename: "nes1.png", content_type: "image/png")
@@ -33,14 +41,16 @@ chatrooms4 = Chatroom.create
 chatrooms5 = Chatroom.create
 
    Message.create!(content: "how you doing bro",chatroom:chatrooms1,user:users1)
-   Message.create!(content: "whats up",chatroom:chatrooms1,user:users2)
+   Message.create!(content: "Long time noo speak",chatroom:chatrooms1,user:users2)
    Message.create!(content: "whats up",chatroom:chatrooms2,user:users3)
-   Message.create!(content: "heyyo",chatroom:chatrooms2,user:users4)
-   Message.create!(content: "helloo",chatroom:chatrooms1,user:users2)
-   Message.create(content:"Long time noo speak",chatroom:chatrooms2,user:users2)
+   Message.create!(content: "yooo man ive just seen your post would love to collab",chatroom:chatrooms2,user:users4)
+   Message.create(content:"Long time noo speak",chatroom:chatrooms3,user:users1)
    Message.create(content:"yooo man ive just seen your post would love to collab",chatroom:chatrooms3,user:users3)
    Message.create(content:"heard you was looking for a collab",chatroom:chatrooms4,user:users4)
-   Message.create(content:"when you next in LA bro , got a studio!",chatroom:chatrooms5,user:users5)
+   Message.create(content:"when you next in LA bro , got a studio!",chatroom:chatrooms4,user:users5)
+   Message.create(content:"You know it’s funny when it rains it pours, they got money for wars but can’t feed the poor",chatroom:chatrooms5,user:users4)
+   Message.create(content:"Last name ever, first name greatest, like a sprained ankle boy, I ain’t nothin’ to play with.",chatroom:chatrooms5,user:users5)
+
 
 
 

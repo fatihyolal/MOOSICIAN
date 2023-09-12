@@ -1,17 +1,24 @@
 .date {
-  color: #999;
+  color: $neutralgrey400;
   font-size: 13px
 }
 
 
 .message-card {
   width: 100%;
-  background-color: $pink-blue;
+  background-color: $coolgrey800;
   border-radius: 20px;
 }
 
 .message-card img {
   border-radius: 50%;
-  width: 3vw;
-  height: 3vw;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
 }
+
+.name {
+  // font-size: 12px;
+  color: $neutralgrey300;
+  }
