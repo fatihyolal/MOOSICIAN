@@ -9,17 +9,6 @@ class PostsController < ApplicationController
       @posts = policy_scope(Post)
     end
     @comment = Comment.new
-
-    @received_messages = current_user.chatrooms.map { |chatroom| chatroom.messages.where.not(user: current_user) }
-
-
-
-    respond_to do |format|
-      format.html
-      format.text { render partial: "posts/list", locals: { posts: @posts }, formats: [:html] }
-    end
-
-
   end
 
   def create

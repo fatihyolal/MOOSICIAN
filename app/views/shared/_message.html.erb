@@ -1,23 +1,21 @@
-<div class="py-3">
-  <div class="message-card d-flex flex-column p-4 align-items-center">
-    <div class="pb-2 comment-card w-100 d-flex justify-content-center">
-      <h3 class="name-username">Messages</h3>
-    </div>
-    <% @received_messages.each_with_index do |message, index| %>
+<div class="container py-5 h-100">
+    <% @received_messages.each do |message| %>
       <% if message.first.present? %>
-        <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless message.index == @received_messages.length %>">
-          <%= cl_image_tag message.last.user.photo.key %>
-          <div class="flex-grow-1 ms-3">
-            <div class="details">
-              <div class="name"><%= message.last.user.first_name %> <%= message.last.user.last_name %></div>
-              <div class="content"><%= message.last.content %></div>
-              <div class="date"><%= message.last.created_at.strftime("sent at %I:%M%p - %m/%d/%Y") %></div>
+        <div class="message-card col-3 col-m-3 col-xs-16">
+            <div class="d-flex p-4">
+              <div class="flex-shrink-0">
+                 <%= cl_image_tag message.last.user.photo.key %>
+              </div>
+              <div class="flex-grow-1 ms-3">
+                <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
+                <div class="details">
+                  <div class="name"> <%= message.last.user.first_name %> <%= message.last.user.last_name %> <%= message.last.user.username %></div>
+                  <div class="content"></i> <%= message.last.content  %></div>
+                  <div class="date"></i> <%= message.last.created_at.strftime("received at %I:%M%p on %m/%d/%Y")  %></div>
+                </div>
+              </div>
             </div>
-          </div>
         </div>
-      <% else %>
-        <p>No new messages</p>
       <% end %>
-    <% end %>
-  </div>
+  <% end %>
 </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'globalsearch/search'
   devise_for :users
   root to: "posts#index"
 
@@ -13,12 +14,11 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show]
-  resources :chatrooms, only: :show
+
 
   resources :likes, only: :destroy
   resources :profiles, only: %i[show]
-  resources :chatrooms, only: %i[show index] do
-
+  resources :chatrooms, only: %i[show index create] do
     resources :messages, only: :create
     get 'messages', on: :member, to: 'chatrooms#show_messages'
   end
