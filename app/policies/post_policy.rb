@@ -18,6 +18,10 @@ class PostPolicy < ApplicationPolicy
   #   true
   # end
 
+  def show?
+    true 
+  end
+
   def create?
     true
   end
@@ -30,4 +34,3 @@ class PostPolicy < ApplicationPolicy
     record.user == user
   end
 end
-

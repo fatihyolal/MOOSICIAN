@@ -8,7 +8,7 @@
           <ul class="dropdown-menu navbar-dropdown-menu">
             <%= link_to "Feed", root_path, class: "dropdown-item" %>
             <% if current_user.profile %>
-            <%= link_to "My profile", profile_path(current_user.profile.id), class: "dropdown-item" %>
+              <%= link_to "My profile", profile_path(current_user.profile.id), class: "dropdown-item" %>
             <% end %>
             <%= link_to "Messages", chatrooms_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>

@@ -85,8 +85,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_124719) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "music_url"
-    t.string "embed_url"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
