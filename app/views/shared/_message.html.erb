@@ -4,7 +4,7 @@
       <h3 class="name-username">Messages</h3>
     </div>
     <% @received_messages.each_with_index do |message, index| %>
-      <% if message.first.present? %>
+      <% if message.present? %>
         <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless message.index == @received_messages.length %>">
           <%= cl_image_tag message.last.user.photo.key %>
           <div class="flex-grow-1 ms-3">
@@ -16,7 +16,7 @@
           </div>
         </div>
       <% else %>
-        <p>No new messages</p>
+        <p class="secondary-text">No new messages</p>
       <% end %>
     <% end %>
   </div>

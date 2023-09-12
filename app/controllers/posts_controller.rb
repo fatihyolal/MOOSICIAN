@@ -11,9 +11,6 @@ class PostsController < ApplicationController
     @comment = Comment.new
 
     @received_messages = current_user.chatrooms.map { |chatroom| chatroom.messages.where.not(user: current_user) }
-
-
-
     respond_to do |format|
       format.html
       format.text { render partial: "posts/list", locals: { posts: @posts }, formats: [:html] }
@@ -22,12 +19,17 @@ class PostsController < ApplicationController
 
   end
 
+  def show
+    @post = Post.find(params[:id])
+    authorize @post
+  end
+
   def create
     #  result = Cloudinary::Uploader.upload(params[:post][:attachment])
-     @post = Post.new(post_params)
+    @post = Post.new(post_params)
     #  @post.attachment_url = result['secure_url']
-     @post.user = current_user
-     if @post.save
+    @post.user = current_user
+      if @post.save
        @posts = policy_scope(Post)
 
       @comment = Comment.new
@@ -41,13 +43,13 @@ class PostsController < ApplicationController
       @posts = policy_scope(Post)
       render :index, status: :unprocessable_entity
     end
-    authorize @post
+       authorize @post
   end
 
-  private
+   private
+
   def post_params
     params.require(:post).permit(:description, :audio_data, :music_url, :embed_url)
   end
-
 
 end
