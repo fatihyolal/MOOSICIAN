@@ -57,27 +57,40 @@ chatrooms5 = Chatroom.create(user_1: users4, user_2: users5)
    posts1 = Post.create!(title: "whats on your mind moosician",
    description: "I WISH I WAS RICHER - comming out soon, looking for someone to feature...",
    category: "rap",
-   user:users1)
+   user:users1,
+    music_url:"https://youtu.be/MaJkOEOi9lA?si=vC-cjzWrhNmn66EU",
+    embed_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/MaJkOEOi9lA?si=vC-cjzWrhNmn66EU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+  )
 
    posts2 = Post.create(title: "whats on your mind moosician",
    description: "New track droping sooon, here's a sample.",
    category: "rap",
-   user:users2)
+   user:users2,
+   music_url:"https://youtu.be/Kb_HjCqLLyc?si=7l69qRH-aBJZTVBg",
+   embed_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/Kb_HjCqLLyc?si=7l69qRH-aBJZTVBg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+  )
 
    posts3 = Post.create(title: "whats on your mind moosician",
    description: "Trap beat I made last night, what do you guys think?",
    category: "rap",
-   user:users3)
+   user:users3,
+   music_url:"https://youtu.be/4ozcaBKyXQ0?si=wbCyizdvH1QP1W0x",
+   embed_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/4ozcaBKyXQ0?si=wbCyizdvH1QP1W0x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+  )
 
    posts4= Post.create(title: "whats on your mind moosician",
    description: "Need a collab who makes beats, looking for something with a Dancehall vibe.",
    category: "rap",
-   user:users4)
+   user:users4,
+   music_url:"https://youtu.be/Q8RBX06xtiE?si=LIGoN3WIGyTOU7oI"
+  )
 
    posts5= Post.create(title: "whats on your mind moosician",
    description: "Wrote these lyrics for this track but can't get the mix right, any sound engineers wanna help?",
    category: "jazz",
-   user:users5)
+   user:users5,
+   music_url:"https://youtu.be/o2Vw4llfoQ8?si=AC8W1EFWDSzoD_z2"
+  )
 
    Comment.create!(content:"leet me see what i can do for you boss",user:users1,post:posts1)
    Comment.create(content:"I am a huge fan man keep it up",user:users2,post:posts1)
