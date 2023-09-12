@@ -14,7 +14,7 @@
           <p class="name-username">
             <b><%= post.user.first_name %>
             <%= post.user.last_name %></b>
-            <%= post.user.username %>
+            @<%= post.user.username %>
           </p>
           </div>
           <p class="name-username secondary-text"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
