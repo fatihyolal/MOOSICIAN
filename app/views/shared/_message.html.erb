@@ -3,21 +3,21 @@
     <div class="pb-2 comment-card w-100 d-flex justify-content-center">
       <h3 class="name-username">Messages</h3>
     </div>
-    <% @received_messages.each_with_index do |message, index| %>
-      <% if message.present? %>
-        <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless message.index == @received_messages.length %>">
-          <%= cl_image_tag message.last.user.photo.key %>
-          <div class="flex-grow-1 ms-3">
-            <div class="details">
-              <div class="name"><%= message.last.user.first_name %> <%= message.last.user.last_name %></div>
-              <div class="content"><%= message.last.content %></div>
-              <div class="date"><%= message.last.created_at.strftime("sent at %I:%M%p - %m/%d/%Y") %></div>
+    <% if @received_messages.empty? %>
+      <% @received_messages.each_with_index do |message, index| %>
+          <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless message.index == @received_messages.length %>">
+            <%= cl_image_tag message.last.user.photo.key %>
+            <div class="flex-grow-1 ms-3">
+              <div class="details">
+                <div class="name"><%= message.last.user.first_name %> <%= message.last.user.last_name %></div>
+                <div class="content"><%= message.last.content %></div>
+                <div class="date"><%= message.last.created_at.strftime("sent at %I:%M%p - %m/%d/%Y") %></div>
+              </div>
             </div>
           </div>
-        </div>
-      <% else %>
-        <p class="secondary-text">No new messages</p>
       <% end %>
+    <% else %>
+      <p class="secondary-text">No new messages</p>
     <% end %>
   </div>
 </div>

@@ -1,16 +1,22 @@
-<div class="message-card col-3 col-m-3 col-xs-16">
-    <div class="d-flex p-4 w-100">
-      <div class="d-flex align-items-center">
-        <%= cl_image_tag message.user.photo.key %>
-      </div>
-      <div class="flex-grow-1 ms-3">
-        <div class="details">
-            <div class="name"> <%= User.find(message.chatroom.user_1).first_name unless User.find(message.chatroom.user_1).first_name == current_user.first_name %> <%= User.find(message.chatroom.user_1).last_name unless User.find(message.chatroom.user_1).last_name == current_user.last_name %>
-              <%= link_to message.user.username, chatroom_path(message.chatroom), data: { action: "click->chat-details#show:prevent" } %>
+<%= link_to chatroom_path(message.chatroom), data: { action: "click->chat-details#show:prevent" } do %>
+  <div class="message-card col-3 col-m-3 col-xs-16">
+      <div class="d-flex p-4 w-100">
+        <div class="d-flex align-items-center">
+          <%= cl_image_tag User.find(message.chatroom.user_1).photo.key unless User.find(message.chatroom.user_1) == current_user %>
+          <%= cl_image_tag User.find(message.chatroom.user_2).photo.key unless User.find(message.chatroom.user_2) == current_user %>
+        </div>
+        <div class="flex-grow-1 ms-3">
+          <div class="details">
+              <div class="name">
+                <%= User.find(message.chatroom.user_1).first_name unless User.find(message.chatroom.user_1).first_name == current_user.first_name %> <%= User.find(message.chatroom.user_1).last_name unless User.find(message.chatroom.user_1).last_name == current_user.last_name %>
+                <%= User.find(message.chatroom.user_2).first_name unless User.find(message.chatroom.user_2).first_name == current_user.first_name %> <%= User.find(message.chatroom.user_2).last_name unless User.find(message.chatroom.user_2).last_name == current_user.last_name %>
+                <%= User.find(message.chatroom.user_1).username unless User.find(message.chatroom.user_1).username == current_user.username %>
+                @<%= User.find(message.chatroom.user_2).username unless User.find(message.chatroom.user_2).username == current_user.username %>
+              </div>
+              <div class="date"></i> <%= message.created_at.strftime("received at %I:%M%p on %m/%d/%Y")  %>
             </div>
-            <div class="date"></i> <%= message.created_at.strftime("received at %I:%M%p on %m/%d/%Y")  %>
-          </div>
+        </div>
       </div>
-     </div>
+    </div>
   </div>
-</div>
+<% end %>

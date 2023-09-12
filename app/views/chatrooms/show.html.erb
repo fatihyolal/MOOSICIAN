@@ -1,5 +1,8 @@
 <div class="container chatroom" data-controller = "chatroom-subscription" data-chatroom-subscription-chatroom-id-value=<%= @chatroom.id %>>
-  <h1>#<%= @chatroom.id %></h1>
+  <h1>
+    <%= User.find(@chatroom.user_1).first_name unless User.find(@chatroom.user_1).first_name == current_user.first_name %><%= User.find(@chatroom.user_1).last_name unless User.find(@chatroom.user_1).last_name == current_user.last_name %>
+    <%= User.find(@chatroom.user_2).first_name unless User.find(@chatroom.user_2).first_name == current_user.first_name %><%= User.find(@chatroom.user_2).last_name unless User.find(@chatroom.user_2).last_name == current_user.last_name %>
+  </h1>
     <div class="messages" data-chatroom-subscription-target = "messages">
     <% @chatroom.messages.each do |message| %>
       <%
