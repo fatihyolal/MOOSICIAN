@@ -1,56 +1,42 @@
 <div class="my-3" data-controller="comments">
   <div class="index-card" data-comments-target="indexCard">
-  <div class = "w-100">
-
-    <%= link_to "", post_path(post.id) %>
-
-    <% if current_user.profile %>
-      <%= link_to profile_path(post.user.profile) do %>
-
-        <div class="d-flex">
-          <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
-          <div>
+    <div class = "w-100">
+      <%= link_to "", post_path(post.id) %>
+      <% if current_user.profile %>
+        <%= link_to profile_path(post.user.profile) do %>
+          <div class="d-flex p-2">
+            <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
             <div>
-              <p class="name-username">
-                <b><%= post.user.first_name %>
-                <%= post.user.last_name %></b>
-                @<%= post.user.username %>
+              <div>
+                <p class="name-username">
+                  <b><%= post.user.first_name %>
+                    <%= post.user.last_name %></b>
+                  @<%= post.user.username %>
+                </p>
+              </div>
+              <p class="name-username secondary-text" style="font-size: 14px;"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i>
               </p>
             </div>
-            <p class="name-username secondary-text" style="font-size: 14px;"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i>
-            </p>
           </div>
+        <% end %>
+      <% end %>
+      <% if post.embed_url.present? %>
+        <div class="video-container">
+          <%= raw post.embed_url %>
         </div>
       <% end %>
-    <% end %>
-
-
-    <%# this will show iframe %>
-    <% if post.embed_url.present? %>
-              <div class="video-container">
-              <%= raw post.embed_url %>
-              </div>
-            <% end %>
-
-    <h1><%= post.description %></h1>
-    <% if post.audio_data.attached? %>
-    <%= audio_tag post.audio_data.url, controls:true %>
-    <% end %>
-
-
-
-      <div class="d-flex align-items-center">
-        <%= turbo_frame_tag dom_id(post, :like) do %>
-          <div class="d-flex align-items-center">
-
-             <%# this will put a link for music url %>
-
+      <h1><%= post.description %></h1>
+      <% if post.audio_data.attached? %>
+        <%= audio_tag post.audio_data.url, controls:true %>
+      <% end %>
+      <%= turbo_frame_tag dom_id(post, :like) do %>
+        <div class="d-flex align-items-center justify-content-between">
+          <div class ="d-flex align-items-center ">
             <% if post.music_url.present? %>
-            <%= link_to post.music_url, target: "_blank" do %>
-              <i class=" fa-solid fa-arrow-up-right-from-square icon fa-xl me-1"></i>
+              <%= link_to post.music_url, target: "_blank" do %>
+                <i class=" fa-solid fa-arrow-up-right-from-square icon fa-xl me-1"></i>
+              <% end %>
             <% end %>
-            <% end %>
-
             <h3 class="me-1 mb-0 text-color"><%= post.likes.length %></h3>
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
@@ -61,39 +47,34 @@
                 <i class="fa-solid fa-heart icon fa-xl me-1"></i>
               <% end %>
             <% end %>
+            <%# <% end MAYBE END OF TURBOFRAME%>
+            <i class="fa-solid fa-comment icon fa-xl me-1" data-action="click->comments#display"></i>
           </div>
-        <% end %>
-        <h3 class="me-1 mb-0 text-color"><%= post.comments.length %></h3>
-        <i class="fa-solid fa-comment icon fa-xl me-1" data-action="click->comments#display"></i>
-        <%= link_to "#" do %>
-        <% end %>
-
-        <div class="dropdown">
-          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-share icon fa-2xl"></i>
-          </a>
-
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a type="button" class="shareButton mx-2" tabindex="0" href="https://twitter.com/intent/tweet?text=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>"  target="_blank" title="Share on Twitter" arial-label="Share on Twitter">
-        <i class="fab fa-twitter icon" style="font-size:20px;"></i></a>
-        <a type="button" class="shareButton mx-2" tabindex="0" href="https://www.facebook.com/sharer/sharer.php?u=<%= url_encode(post_url(post)) %>" target="_blank" title="Share on Facebook" arial-label="Share on Facebook">
-        <i class="fab fa-facebook-f icon" style="font-size:20px;"></i></a>
-        <a type="button" class="shareButton mx-2" tabindex="0" href="https://www.tumblr.com/widgets/share?title=<%= url_encode(post.description) %>&url=<%= url_encode(post_url(post)) %>" target="_blank" title="Share on Tumblr" arial-label="Share on Tumblr">
-        <i class="fab fa-tumblr icon" style="font-size:20px;"></i></a>
-        <a type="button" class="shareButton mx-2" tabindex="0" href="https://api.whatsapp.com/send?text=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>" target="_blank" title="Share on WhatsApp" aria-label="Share on WhatsApp">
-        <i class="fab fa-whatsapp icon" style="font-size:20px;"></i></a>
-        <a type="button" class="shareButton mx-2" tabindex="0" href="mailto:?subject=<%= url_encode("Check out this awesome post: #{post.description}") %>&body=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>" target="_blank" title="Share via email" arial-label="Share via email">
-        <i class="fa fa-envelope icon" style="font-size:20px;"></i></a>
-      </ul>
-   </div>
+          <div class="dropdown">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-share icon fa-2xl"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a type="button" class="shareButton mx-2" tabindex="0" href="https://twitter.com/intent/tweet?text=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>"  target="_blank" title="Share on Twitter" arial-label="Share on Twitter">
+                <i class="fab fa-twitter icon" style="font-size:20px;"></i></a>
+              <a type="button" class="shareButton mx-2" tabindex="0" href="https://www.facebook.com/sharer/sharer.php?u=<%= url_encode(post_url(post)) %>" target="_blank" title="Share on Facebook" arial-label="Share on Facebook">
+                <i class="fab fa-facebook-f icon" style="font-size:20px;"></i></a>
+              <a type="button" class="shareButton mx-2" tabindex="0" href="https://www.tumblr.com/widgets/share?title=<%= url_encode(post.description) %>&url=<%= url_encode(post_url(post)) %>" target="_blank" title="Share on Tumblr" arial-label="Share on Tumblr">
+                <i class="fab fa-tumblr icon" style="font-size:20px;"></i></a>
+              <a type="button" class="shareButton mx-2" tabindex="0" href="https://api.whatsapp.com/send?text=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>" target="_blank" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+                <i class="fab fa-whatsapp icon" style="font-size:20px;"></i></a>
+              <a type="button" class="shareButton mx-2" tabindex="0" href="mailto:?subject=<%= url_encode("Check out this awesome post: #{post.description}") %>&body=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>" target="_blank" title="Share via email" arial-label="Share via email">
+                <i class="fa fa-envelope icon" style="font-size:20px;"></i></a>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+      <div class="comment-container d-none" data-comments-target="commentsContainer">
+        <%= render post.comments %>
+        <div class="w-100">
+          <%= render "comments/form", post: post, comment: @comment %>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="comment-container d-none" data-comments-target="commentsContainer">
-    <%= render post.comments %>
-  <div class="w-100">
-    <%= render "comments/form", post: post, comment: @comment %>
-  </div>
   </div>
 </div>
