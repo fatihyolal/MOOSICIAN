@@ -6,13 +6,19 @@
         <div>
           <div class="d-flex align-items-center">
             <h3 class="name-username"><%= user.first_name %> <%= user.last_name %></h3>
-            <p class="secondary-text ps-1 name-username"><%= user.username %></p>
+            <p class="secondary-text ps-1 name-username">@<%= user.username %></p>
           </div>
           <p><%= user.bio %></p>
           <p>Joined on <%= user.created_at.strftime("#{current_user.created_at.day.ordinalize} of %b, %Y") %></p>
         </div>
-        <div class="d-flex justify-content-end">
-          <%= link_to "Message", chatroom_path, class: "moosician-btn" %>
+        <p class="mb-2 pb-1"><%= user.bio %></p>
+        <div class="d-flex justify-content-start rounded-3 p-2 mb-2">
+        <% chatroom = Chatroom.find_by(user_1: user, user_2: current_user) || chatroom = Chatroom.find_by(user_2: user, user_1: current_user)   %>
+          <% if chatroom.nil? %>
+            <%= button_to "Message 📨", chatrooms_path(receiver: user), class: "moosician-btn" %>
+          <% else %>
+            <%= link_to "Message 📨", chatroom_path(chatroom), class: "moosician-btn" %>
+          <% end %>
         </div>
       </div>
     </div>

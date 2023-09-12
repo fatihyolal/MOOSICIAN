@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
       authorize @message
     end
 
+
     private
 
     def message_params
