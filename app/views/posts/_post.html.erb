@@ -1,6 +1,6 @@
 <div class="my-3" data-controller="comments search-global " data-search-global-target="posts "  >
   <div class="index-card" data-comments-target="indexCard">
-    <h1><%= post.description %></h1>
+    <h3><%= post.description %></h3>
     <% if post.audio_data.attached? %>
     <%= audio_tag post.audio_data.url, controls:true %>
     <% end %>
@@ -14,10 +14,10 @@
           <p class="name-username">
             <b><%= post.user.first_name %>
             <%= post.user.last_name %></b>
-            <%= post.user.username %>
+            @<%= post.user.username %>
           </p>
           </div>
-          <p class="name-username secondary-text"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
+          <p class="name-username secondary-text" style="font-size: 14px;"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i></p>
         </div>
       </div>
       <% end %>
@@ -27,19 +27,19 @@
             <h3 class="me-1 mb-0 text-color"><%= post.likes.length %></h3>
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
-                <i class="fa-solid fa-heart icon fa-2xl me-1 btn-pressed"></i>
+                <i class="fa-solid fa-heart icon fa-xl me-1 btn-pressed"></i>
               <% end %>
             <% else %>
               <%= link_to post_likes_path(post), data: { turbo_method: :post } do %>
-                <i class="fa-solid fa-heart icon fa-2xl me-1"></i>
+                <i class="fa-solid fa-heart icon fa-xl me-1"></i>
               <% end %>
             <% end %>
           </div>
         <% end %>
         <h3 class="me-1 mb-0 text-color"><%= post.comments.length %></h3>
-        <i class="fa-solid fa-comment icon fa-2xl me-1" data-action="click->comments#display"></i>
+        <i class="fa-solid fa-comment icon fa-xl me-1" data-action="click->comments#display"></i>
         <%= link_to "#" do %>
-          <i class="fa-solid fa-share icon fa-2xl"></i>
+          <i class="fa-solid fa-share icon fa-xl"></i>
         <% end %>
       </div>
     </div>
