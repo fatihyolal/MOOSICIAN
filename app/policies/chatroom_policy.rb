@@ -34,7 +34,5 @@ class ChatroomPolicy < ApplicationPolicy
   #    redirect_to chatroom_path(@chatroom)
   #   end
 
-    ###
-
-
+  ###
 end

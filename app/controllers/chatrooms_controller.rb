@@ -8,11 +8,10 @@ class ChatroomsController < ApplicationController
     # if @chatroom.nil?
     #   @chatroom = Chatroom.create(user_1: current_user.id, user_2: params[:receiver]) if @chatroom.nil?
     # else
-    # end
+    #  end
     @chatroom = Chatroom.find(params[:id])
     @message = Message.new
     authorize @chatroom
-
   end
 
   def create
@@ -23,7 +22,6 @@ class ChatroomsController < ApplicationController
   end
 
   def index
-
     @messages = policy_scope(Message)
 
     # @last_messages = {}
@@ -37,6 +35,4 @@ class ChatroomsController < ApplicationController
       @last_messages << chatroom.messages.last
     end
   end
-
-
 end

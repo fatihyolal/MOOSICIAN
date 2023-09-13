@@ -1,24 +1,22 @@
 class MessagesController < ApplicationController
+  def create
+    @chatroom = Chatroom.find(params[:chatroom_id])
+    @message = Message.new(message_params)
+    @message.chatroom = @chatroom
+    @message.user = current_user
+    @message.save
+    ChatroomChannel.broadcast_to(
+      @chatroom,
+      render_to_string(partial: "message", locals: { message: @message })
+    )
+    head :ok
 
-    def create
-      @chatroom = Chatroom.find(params[:chatroom_id])
-      @message = Message.new(message_params)
-      @message.chatroom = @chatroom
-      @message.user = current_user
-      @message.save
-        ChatroomChannel.broadcast_to(
-          @chatroom,
-          render_to_string(partial: "message", locals: {message: @message})
-        )
-      head :ok
+    authorize @message
+  end
 
-      authorize @message
-    end
+  private
 
-
-    private
-
-    def message_params
-      params.require(:message).permit(:content)
-    end
+  def message_params
+    params.require(:message).permit(:content)
+  end
 end

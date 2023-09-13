@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
     #   scope.all
     # end
     def resolve
-      user.admin? ? scope.all : scope.where(user: user)
+      user.admin? ? scope.all : scope.where(user:)
     end
   end
 

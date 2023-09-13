@@ -15,14 +15,14 @@ class User < ApplicationRecord
   # validates :username, presence: true, uniqueness: true
   # validates :bio, presence: true
   def username_with_at
-    "@" + username
+    "@#{username}"
   end
 
   def create_profile
     Profile.create(
-      first_name: self.first_name,
-      last_name: self.last_name,
-      username: self.username,
+      first_name:,
+      last_name:,
+      username:,
       user: self
     )
   end

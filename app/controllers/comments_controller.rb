@@ -8,11 +8,10 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.html { redirect_to root_path }
-        format.json
       else
         format.html { redirect_to root_path, status: :unprocessable_entity }
-        format.json
       end
+      format.json
     end
   end
 
@@ -21,5 +20,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content)
   end
-
 end
