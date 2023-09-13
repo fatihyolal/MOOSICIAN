@@ -12,7 +12,7 @@
               <div class="details">
                 <div class="name"><%= message.user.first_name %> <%= message.user.last_name %></div>
                 <div class="content"><%= message.content %></div>
-                <div class="date"><%= message.created_at.strftime("sent at %I:%M%p - %m/%d/%Y") %></div>
+                <div class="date"><i><%= message.created_at.strftime("sent at %I:%M%p - %m/%d/%Y") %></i></div>
               </div>
             </div>
           </div>
