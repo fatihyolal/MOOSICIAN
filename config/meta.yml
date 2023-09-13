@@ -1,0 +1,5 @@
+meta_product_name: "MOOSICIAN"
+meta_title: "MOOSICIAN – Connect on MOOSICIAN"
+meta_description: "Discover, collaborate, and showcase your music with our app for amateur musicians. Find like-minded artists, create music together, and join our community of passionate musicians today."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account" # required for Twitter Cards
