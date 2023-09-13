@@ -18,8 +18,8 @@ bio:" I’m the type of person to put myself in everybody else’s shoes - Rappe
 users2.photo.attach(io: URI.open("https://img.buzzfeed.com/buzzfeed-static/complex/images/uwr3uur8lmnj79v40c8j/young-thug-bumbershoot-suzi-pratt.jpg?output-format=jpg&output-quality=auto"), filename: "nes2.png", content_type: "image/png")
 users2.save!
 
-users3 = User.new(email: "1future@gmail.com", password:"12345678",password_confirmation:"12345678",username:"PLUTOHENDRIX" ,
-bio:"Purple Reign - Rapper " ,location: " Atlanta, Georgia",first_name:"FUTURE",last_name:"Hendrix")
+users3 = User.new(email: "1future@gmail.com", password:"12345678",password_confirmation:"12345678",username:"PLUTOHENDRIX_" ,
+bio:"I don't write hits for myself, or for other artists, or to just be writing it. I write it because I was born to do this. I was given this gift and I'm making the most of my opportunity. - Rapper " ,location: " Atlanta, Georgia",first_name:"FUTURE",last_name:"Hendrix")
 users3.photo.attach(io: URI.open("https://www.nme.com/wp-content/uploads/2020/05/prince-williams-future-getty-2020.jpg"), filename: "nes3.png", content_type: "image/png")
 users3.save!
 
