@@ -39,6 +39,8 @@ chatrooms1 = Chatroom.create!(user_1: users1.id, user_2: users2.id)
 chatrooms2 = Chatroom.create!(user_1: users3.id, user_2: users4.id)
 chatrooms3 = Chatroom.create!(user_1: users1.id, user_2: users3.id)
 chatrooms4 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
+chatrooms5 = Chatroom.create!(user_1: users2.id, user_2: users5.id)
+chatrooms6 = Chatroom.create!(user_1: users2.id, user_2: users3.id)
 
 
    Message.create!(content: "how you doing bro",chatroom:chatrooms1,user:users1)
@@ -49,6 +51,8 @@ chatrooms4 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
    Message.create(content:"yooo man ive just seen your post would love to collab",chatroom:chatrooms3,user:users3)
    Message.create(content:"heard you was looking for a collab",chatroom:chatrooms4,user:users4)
    Message.create(content:"when you next in LA bro , got a studio!",chatroom:chatrooms4,user:users5)
+   Message.create(content:"Heard about the break up, are you ok?",chatroom:chatrooms5,user:users5)
+   Message.create(content:"Yo bro, text me back!!",chatroom:chatrooms6,user:users3)
 
 
 
@@ -70,6 +74,12 @@ chatrooms4 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
    embed_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/Kb_HjCqLLyc?si=7l69qRH-aBJZTVBg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
   )
 
+  posts4= Post.create(title: "whats on your mind moosician",
+  description: "Need a collab who makes beats, looking for something with a Dancehall vibe.",
+  category: "rap",
+  user:users4,
+ #  music_url:"https://youtu.be/Q8RBX06xtiE?si=LIGoN3WIGyTOU7oI"
+ )
    posts3 = Post.create(title: "whats on your mind moosician",
    description: "Trap beat I made last night, what do you guys think?",
    category: "rap",
@@ -78,18 +88,12 @@ chatrooms4 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
    embed_url: '<iframe width="560" height="315" src="https://www.youtube.com/embed/4ozcaBKyXQ0?si=wbCyizdvH1QP1W0x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
   )
 
-   posts4= Post.create(title: "whats on your mind moosician",
-   description: "Need a collab who makes beats, looking for something with a Dancehall vibe.",
-   category: "rap",
-   user:users4,
-   music_url:"https://youtu.be/Q8RBX06xtiE?si=LIGoN3WIGyTOU7oI"
-  )
 
    posts5= Post.create(title: "whats on your mind moosician",
    description: "Wrote these lyrics for this track but can't get the mix right, any sound engineers wanna help?",
    category: "jazz",
    user:users5,
-   music_url:"https://youtu.be/o2Vw4llfoQ8?si=AC8W1EFWDSzoD_z2"
+  #  music_url:"https://youtu.be/o2Vw4llfoQ8?si=AC8W1EFWDSzoD_z2"
   )
 
    Comment.create!(content:"leet me see what i can do for you boss",user:users1,post:posts1)
@@ -100,8 +104,9 @@ chatrooms4 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
   Comment.create(content:"We need to link up sooon",user:users3,post:posts2)
   Comment.create(content:"This is fire!",user:users4,post:posts2)
   Comment.create(content:"Would love to discuss this more, sent you a message...",user:users5,post:posts2)
-  Comment.create(content:"check your dms",user:users4,post:posts3)
+  Comment.create(content:"Would love to discuss this more, sent you a message...",user:users4,post:posts3)
   Comment.create(content:"i always thought you should get more recognition bro",user:users5,post:posts3)
+  Comment.create!(content:"leet me see what i can do for you boss",user:users1,post:posts3)
   Comment.create(content:"check your dms",user:users4,post:posts4)
   Comment.create(content:"i always thought you should get more recognition bro",user:users5,post:posts4)
   Comment.create(content:"We need to link up sooon",user:users3,post:posts4)
@@ -116,14 +121,13 @@ chatrooms4 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
   Like.create(user:users1,post:posts2)
   Like.create(user:users1,post:posts4)
   Like.create(user:users1,post:posts5)
-  Like.create!(user:users2,post:posts1)
-  Like.create(user:users2,post:posts3)
-  Like.create(user:users2,post:posts2)
-  Like.create(user:users2,post:posts4)
-  Like.create(user:users2,post:posts5)
+  Like.create!(user:users5,post:posts1)
+  Like.create(user:users5,post:posts3)
+  Like.create(user:users5,post:posts2)
+  Like.create(user:users5,post:posts4)
+  Like.create(user:users5,post:posts5)
   Like.create!(user:users3,post:posts1)
   Like.create(user:users3,post:posts2)
   Like.create(user:users3,post:posts5)
   Like.create!(user:users4,post:posts1)
   Like.create(user:users4,post:posts5)
-  Like.create!(user:users5,post:posts1)

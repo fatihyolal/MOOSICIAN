@@ -4,7 +4,7 @@
       <%= link_to "", post_path(post.id) %>
       <% if current_user.profile %>
         <%= link_to profile_path(post.user.profile) do %>
-          <div class="d-flex p-2">
+          <div class="d-flex py-2">
             <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
             <div>
               <div>
@@ -25,19 +25,24 @@
           <%= raw post.embed_url %>
         </div>
       <% end %>
-      <h1><%= post.description %></h1>
+      <h1 class="name-username"><%= post.description %></h1>
+      <div class="w-100 d-flex justify-content-end mb-2">
+        <% if post.music_url.present? %>
+          <%= link_to post.music_url, target: "_blank" do %>
+            <div class="d-flex align-items-center">
+              <p class="pe-2 name-username secondary-text" style="font-size: 14px;">Open link </p>
+              <i class=" fa-solid fa-arrow-up-right-from-square fa-xs secondary-text"></i>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
       <% if post.audio_data.attached? %>
         <%= audio_tag post.audio_data.url, controls:true %>
       <% end %>
       <%= turbo_frame_tag dom_id(post, :like) do %>
         <div class="d-flex align-items-center justify-content-between">
           <div class ="d-flex align-items-center ">
-            <% if post.music_url.present? %>
-              <%= link_to post.music_url, target: "_blank" do %>
-                <i class=" fa-solid fa-arrow-up-right-from-square icon fa-xl me-1"></i>
-              <% end %>
-            <% end %>
-            <h3 class="me-1 mb-0 text-color"><%= post.likes.length %></h3>
+            <h5 class="me-1 mb-0 text-color"><%= post.likes.length %></h5>
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
                 <i class="fa-solid fa-heart icon fa-xl me-1 btn-pressed"></i>
@@ -48,11 +53,12 @@
               <% end %>
             <% end %>
             <%# <% end MAYBE END OF TURBOFRAME%>
+            <h5 class="me-1 mb-0 text-color"><%= post.comments.length %></h5>
             <i class="fa-solid fa-comment icon fa-xl me-1" data-action="click->comments#display"></i>
           </div>
           <div class="dropdown">
-            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa-solid fa-share icon fa-2xl"></i>
+            <a class="btn dropdown-toggle" style="padding: 0px;" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-share icon fa-xl"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <a type="button" class="shareButton mx-2" tabindex="0" href="https://twitter.com/intent/tweet?text=<%= url_encode("Check out this awesome post: #{post.description} - #{post_url(post)}") %>"  target="_blank" title="Share on Twitter" arial-label="Share on Twitter">
@@ -69,12 +75,12 @@
           </div>
         </div>
       <% end %>
-      <div class="comment-container d-none" data-comments-target="commentsContainer">
-        <%= render post.comments %>
-        <div class="w-100">
-          <%= render "comments/form", post: post, comment: @comment %>
-        </div>
-      </div>
+    </div>
+  </div>
+  <div class="comment-container d-none" data-comments-target="commentsContainer">
+    <%= render post.comments %>
+    <div class="w-100">
+      <%= render "comments/form", post: post, comment: @comment %>
     </div>
   </div>
 </div>
