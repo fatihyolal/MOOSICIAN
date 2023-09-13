@@ -48,16 +48,16 @@
 
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
-                <i class="fa-solid fa-heart icon fa-xl me-1 btn-pressed"></i>
+                <i class="fa-solid fa-heart fa-sharp icon fa-xl me-1"></i>
               <% end %>
             <% else %>
               <%= link_to post_likes_path(post), data: { turbo_method: :post } do %>
-                <i class="fa-solid fa-heart icon fa-xl me-1"></i>
+                <i class="fa-regular fa-heart fa-sharp icon fa-xl me-1"></i>
               <% end %>
             <% end %>
             <%# <% end MAYBE END OF TURBOFRAME%>
             <h5 class="me-1 mb-0 text-color"><%= post.comments.length %></h5>
-            <i class="fa-solid fa-comment icon fa-xl me-1" data-action="click->comments#display"></i>
+            <i class="fa-solid fa-comment fa-sharp icon fa-xl me-1" data-action="click->comments#display"></i>
           </div>
           <div class="dropdown">
             <a class="btn dropdown-toggle" style="padding: 0px;" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
