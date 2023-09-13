@@ -12,10 +12,10 @@
               <p style="color: red"><%= message %></p>
             <% end %>
           <% end %>
-          <%= form.text_area :description, class: "form-control new-post-textfield border-1 mb-2", placeholder: "Whats on your mind Moosician" %>
+          <%= form.text_area :description, class: "form-control new-post-textfield mb-2", placeholder: "Whats on your mind Moosician" %>
+          <%= form.text_field :embed_url, class: "form-control new-post-textfield-secondary border-0", placeholder: "Add an embedded music link..." %>
+          <%= form.text_field :music_url, class: "form-control new-post-textfield-secondary border-0", placeholder: "Add a url link..." %>
 
-          <%= form.text_field :embed_url, class: "form-control new-post-textfield border-0", placeholder: "Add an embedded music link" %>
-          <%= form.text_field :music_url, class: "form-control new-post-textfield border-0", placeholder: "Add a url link " %>
           <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
           <%= form.file_field :audio_data, id: "fileInput", class: "input-file" %>
           <div class="icon-container">
