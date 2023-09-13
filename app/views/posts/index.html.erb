@@ -1,9 +1,10 @@
 <div class="container">
   <div class="row">
-    <div class="col-3 p-3">
-      <%= render "shared/profile_vertical" %>
+    <div class="col-3 mt-2 py-3 px-4">
+    <%= render "shared/profile_vertical" %>
     </div>
-    <div class="col-6 px-3">
+    <div class="col-6 mt-2 px-4">
+
       <%= form_with(model: @post, url: posts_path, remote: true, html: { multipart: true, class: "form-post" }) do |form| %>
         <div class="d-flex flex-column align-items-end w-100 mt-3 index-card">
           <% if @post.errors.any? %>
@@ -45,7 +46,7 @@
         <%# <%= render "posts/post", post: post %>
         <%# <% end %>
       </div>
-      <div class="col-3 px-3">
+      <div class="col-3 mt-2 px-4">
         <%= render "shared/message" %>
       </div>
     </div>
