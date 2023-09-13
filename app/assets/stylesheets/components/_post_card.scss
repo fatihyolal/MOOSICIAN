@@ -10,7 +10,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   h1 {
-    font-size: 30px;
+    font-size: 18px;
   }
 }
 
@@ -44,13 +44,28 @@
 }
 
 .new-post-textfield {
-  background-color: $coolgrey800;
+  background-color: $coolgrey700;
   border-radius: 20px;
   color: $neutralgrey400;
+  border: none;
   &:focus {
     box-shadow: none;
     color: $neutralgrey200;
     background-color: $coolgrey700;
+    border: none;
+  }
+}
+
+.new-post-textfield-secondary {
+  background-color: $coolgrey800;
+  border-radius: 20px;
+  color: $neutralgrey400;
+  border: none;
+  &:focus {
+    box-shadow: none;
+    color: $neutralgrey200;
+    background-color: $coolgrey700;
+    border: none;
   }
 }
 

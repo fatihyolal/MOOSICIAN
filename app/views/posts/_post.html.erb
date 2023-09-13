@@ -20,6 +20,7 @@
           </div>
         <% end %>
       <% end %>
+      <h1 class="name-username mb-3 ms-1"><%= post.description %></h1>
       <% if post.embed_url.present? %>
         <div class="video-container">
           <%= raw post.embed_url %>
@@ -27,7 +28,6 @@
       <% end %>
 
 
-      <h1 class="name-username"><%= post.description %></h1>
       <div class="w-100 d-flex justify-content-end mb-2">
         <% if post.music_url.present? %>
           <%= link_to post.music_url, target: "_blank" do %>
