@@ -9,12 +9,12 @@ Chatroom.destroy_all
 
 
 users1 = User.new(email: "kanyecrazy2023@gmail.com", password: "12345678",password_confirmation:"12345678" ,username:"Kanye_crzy" ,
-bio:" - All Gas No Breaks - Upcoming artist with sick beeeats too ,yoo! - Rapper/Beats",location: "Chicago,Illinois",admin:true,first_name:"Kanye",last_name:"East")
+bio:" - Our focus needs to be less about what our legacy is going to be or how we can control each other, but more about how we can gift each other. My mother Donda always told me KANYE make sure you always All Gas No Breaks - Yes I am better than jay-z  - Rapper/Beats",location: "Chicago,Illinois",admin:true,first_name:"Kanye",last_name:"East")
 users1.photo.attach(io: URI.open("https://imageio.forbes.com/specials-images/imageserve/5ed00f17d4a99d0006d2e738/0x0.jpg?format=jpg&crop=4666,4663,x154,y651,safe&height=416&width=416&fit=bounds"), filename: "nes1.png", content_type: "image/png")
 users1.save!
 
 users2 = User.new(email: "yungthugga022@gmail.com", password:"12345678", password_confirmation:"12345678",username:"Youngthug_01" ,
-bio:" I’m the type of person to put myself in everybody else’s shoes - Rapper", location: "Thug's World", first_name:"Young",last_name:"Thug")
+bio:" We're born alone, we live alone, we die alone. Only through our love and music can we create the illusion for the moment that we're not alone. - Rapper", location: "Thug's World", first_name:"Young",last_name:"Thug")
 users2.photo.attach(io: URI.open("https://img.buzzfeed.com/buzzfeed-static/complex/images/uwr3uur8lmnj79v40c8j/young-thug-bumbershoot-suzi-pratt.jpg?output-format=jpg&output-quality=auto"), filename: "nes2.png", content_type: "image/png")
 users2.save!
 
@@ -41,10 +41,11 @@ chatrooms3 = Chatroom.create!(user_1: users1.id, user_2: users3.id)
 chatrooms4 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
 chatrooms5 = Chatroom.create!(user_1: users2.id, user_2: users5.id)
 chatrooms6 = Chatroom.create!(user_1: users2.id, user_2: users3.id)
+chatrooms7 = Chatroom.create!(user_1: users2.id, user_2: users4.id)
 
 
-   Message.create!(content: "how you doing bro",chatroom:chatrooms1,user:users1)
-   Message.create!(content: "Long time noo speak",chatroom:chatrooms1,user:users2)
+   Message.create!(content: "Whats up my man?",chatroom:chatrooms1,user:users2)
+   Message.create!(content: "How you doing bro?",chatroom:chatrooms1,user:users1)
    Message.create!(content: "whats up",chatroom:chatrooms2,user:users3)
    Message.create!(content: "yooo man ive just seen your post would love to collab",chatroom:chatrooms2,user:users4)
    Message.create(content:"Long time noo speak",chatroom:chatrooms3,user:users1)
@@ -52,7 +53,8 @@ chatrooms6 = Chatroom.create!(user_1: users2.id, user_2: users3.id)
    Message.create(content:"heard you was looking for a collab",chatroom:chatrooms4,user:users4)
    Message.create(content:"when you next in LA bro , got a studio!",chatroom:chatrooms4,user:users5)
    Message.create(content:"Heard about the break up, are you ok?",chatroom:chatrooms5,user:users5)
-   Message.create(content:"Yo bro, text me back!!",chatroom:chatrooms6,user:users3)
+   Message.create(content:"Yo bro, text me back!?!",chatroom:chatrooms6,user:users3)
+   Message.create(content:"Studio is booked, see you friday!",chatroom:chatrooms7,user:users4)
 
 
 

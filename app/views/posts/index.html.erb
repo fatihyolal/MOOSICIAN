@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-3 p-3">
+    <div class="col-3 mt-2 py-3 px-4">
     <%= render "shared/profile_vertical" %>
     </div>
-    <div class="col-6 px-3">
+    <div class="col-6 mt-2 px-4">
 
       <%= form_with(model: @post, url: posts_path, remote: true, html: { multipart: true, class: "form-post" }) do |form| %>
         <div class="d-flex flex-column align-items-end w-100 mt-3 index-card">
@@ -13,31 +13,40 @@
             <% end %>
           <% end %>
           <%= form.text_area :description, class: "form-control new-post-textfield mb-2", placeholder: "Whats on your mind Moosician" %>
-          <%= form.text_field :embed_url, class: "form-control new-post-textfield-secondary border-0", placeholder: "Add an embedded music link..." %>
-          <%= form.text_field :music_url, class: "form-control new-post-textfield-secondary border-0", placeholder: "Add a url link..." %>
+          <div class="input-group mb-3 d-flex align-items-center ">
+            <div class="input-group-prepend  p-2">
+              <span ><i class="fa-solid fa-link icon"></i></span>
+            </div>
+            <%= form.text_field :embed_url, class: "form-control new-post-textfield-secondary border-0",'data-toggle': "tooltip", 'data-placement': "left" ,:title => "Paste the link to an embedded song, e.g., a Spotify or YouTube embed link. example: <iframe src='https://www.example.com'></iframe>", placeholder: "Add an embedded music link..." %>
+          </div>
 
+          <div class="input-group mb-3 d-flex align-items-center ">
+          <div class="input-group-prepend p-2">
+            <span ><i class="fa-solid fa-link icon"></i></span>
+          </div>
+          <%= form.text_field :music_url, class: "form-control new-post-textfield-secondary border-0",'data-toggle': "tooltip", 'data-placement': "left" ,:title => "Add a direct URL to the music file or to a music-sharing platform. Examples: https://example.com/song.mp3, https://youtube.com/watch?v=example", placeholder: "Add a url link..." %>
+
+          </div>
           <%# form.text_area :description, class: "form-control", placeholder: "What's happening?" %>
           <%= form.file_field :audio_data, id: "fileInput", class: "input-file" %>
           <div class="icon-container">
-          <label class="control-label" for="fileInput">
-            <i class="fa-solid fa-paperclip fa-xl icon"></i>
-          </label>
-          <button type="submit" class="remove-btn-style">
-            <i class="fa-solid fa-paper-plane fa-xl icon" id="sendIcon"></i>
-          </button>
+            <label class="control-label" for="fileInput">
+              <i class="fa-solid fa-file-audio fa-xl icon"></i>
+            </label>
+            <button type="submit" class="remove-btn-style">
+              <i class="fa-solid fa-paper-plane fa-xl icon" id="sendIcon"></i>
+            </button>
           </div>
-          </div>
+        </div>
       <% end %>
-
       <div data-search-global-target="list">
         <%= render @posts %>
       </div>
       <%# <% @posts.each do |post| %>
         <%# <%= render "posts/post", post: post %>
-      <%# <% end %>
-
+        <%# <% end %>
       </div>
-      <div class="col-3 px-3">
+      <div class="col-3 mt-2 px-4">
         <%= render "shared/message" %>
       </div>
     </div>
