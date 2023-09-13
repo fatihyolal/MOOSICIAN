@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     @last_messages = []
     # raise
     @chatrooms.each do |chatroom|
-      @last_messages << chatroom.messages.last unless chatroom.messages.last.user == current_user
+      @last_messages << chatroom.messages.last unless chatroom.messages.last == nil || chatroom.messages.last.user == current_user
     end
   end
 
