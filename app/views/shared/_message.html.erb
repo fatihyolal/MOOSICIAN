@@ -1,11 +1,11 @@
 <div class="py-3">
   <div class="message-card d-flex flex-column p-4 align-items-center">
-    <div class="pb-2 comment-card w-100 d-flex justify-content-center">
+    <div class="pb-2 comment-card d-flex justify-content-center">
       <h3 class="name-username">Messages</h3>
     </div>
     <% unless @last_messages.empty? %>
       <% @last_messages.each_with_index do |message, index| %>
-        <%= link_to chatroom_path(Chatroom.find(message.chatroom_id)) do %>
+        <%= link_to chatroom_path(Chatroom.find(message.chatroom_id)), class: "w-100" do %>
           <div class="d-flex align-items-center py-2 <%= puts "comment-card" unless index == @last_messages.length %>">
             <%= cl_image_tag message.user.photo.key %>
             <div class="flex-grow-1 ms-3">

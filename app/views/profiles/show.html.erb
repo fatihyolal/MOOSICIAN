@@ -1,17 +1,18 @@
 <div class="container">
   <div class="row">
-    <div class="col-9 p-3">
+    <div class="col-9 p-3 w-100">
       <%= render "shared/profile_horizontal", user: @profile.user %>
       <div class="row">
-        <div class="col-4">
+        <div class="col-4 ">
+          <div class="col-3 p-3 w-100">
+            <%= render "shared/message" %>
+          </div>
         </div>
+
         <div class="col-8">
           <%= render @posts %>
         </div>
       </div>
-    </div>
-    <div class="col-3 p-3">
-      <%= render "shared/message" %>
     </div>
   </div>
 </div>
