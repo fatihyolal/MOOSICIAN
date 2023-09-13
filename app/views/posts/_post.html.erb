@@ -25,6 +25,8 @@
           <%= raw post.embed_url %>
         </div>
       <% end %>
+
+
       <h1 class="name-username"><%= post.description %></h1>
       <div class="w-100 d-flex justify-content-end mb-2">
         <% if post.music_url.present? %>
@@ -43,6 +45,7 @@
         <div class="d-flex align-items-center justify-content-between">
           <div class ="d-flex align-items-center ">
             <h5 class="me-1 mb-0 text-color"><%= post.likes.length %></h5>
+
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
                 <i class="fa-solid fa-heart icon fa-xl me-1 btn-pressed"></i>
