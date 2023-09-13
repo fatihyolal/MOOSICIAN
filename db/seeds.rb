@@ -41,10 +41,11 @@ chatrooms3 = Chatroom.create!(user_1: users1.id, user_2: users3.id)
 chatrooms4 = Chatroom.create!(user_1: users4.id, user_2: users5.id)
 chatrooms5 = Chatroom.create!(user_1: users2.id, user_2: users5.id)
 chatrooms6 = Chatroom.create!(user_1: users2.id, user_2: users3.id)
+chatrooms7 = Chatroom.create!(user_1: users2.id, user_2: users4.id)
 
 
-   Message.create!(content: "how you doing bro",chatroom:chatrooms1,user:users1)
-   Message.create!(content: "Long time noo speak",chatroom:chatrooms1,user:users2)
+   Message.create!(content: "Whats up my man?",chatroom:chatrooms1,user:users2)
+   Message.create!(content: "How you doing bro?",chatroom:chatrooms1,user:users1)
    Message.create!(content: "whats up",chatroom:chatrooms2,user:users3)
    Message.create!(content: "yooo man ive just seen your post would love to collab",chatroom:chatrooms2,user:users4)
    Message.create(content:"Long time noo speak",chatroom:chatrooms3,user:users1)
@@ -52,7 +53,8 @@ chatrooms6 = Chatroom.create!(user_1: users2.id, user_2: users3.id)
    Message.create(content:"heard you was looking for a collab",chatroom:chatrooms4,user:users4)
    Message.create(content:"when you next in LA bro , got a studio!",chatroom:chatrooms4,user:users5)
    Message.create(content:"Heard about the break up, are you ok?",chatroom:chatrooms5,user:users5)
-   Message.create(content:"Yo bro, text me back!!",chatroom:chatrooms6,user:users3)
+   Message.create(content:"Yo bro, text me back!?!",chatroom:chatrooms6,user:users3)
+   Message.create(content:"Studio is booked, see you friday!",chatroom:chatrooms7,user:users4)
 
 
 
