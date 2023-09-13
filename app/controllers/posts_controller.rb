@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     @chatrooms = policy_scope(Chatroom)
     @last_messages = []
     @chatrooms.each do |chatroom|
-      @last_messages << chatroom.messages.last unless chatroom.messages.last.user == current_user
+      @last_messages << chatroom.messages.last unless chatroom.messages.last == nil || chatroom.messages.last.user == current_user
     end
   end
 
