@@ -4,7 +4,7 @@
     <div class="col-3 d-flex justify-content-start align-items-center">
       <% if user_signed_in? %>
         <div class="dropdown">
-          <button class="navbar-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu</button>
+          <button class="navbar-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-bars fa-2xl"></i></button>
           <ul class="dropdown-menu navbar-dropdown-menu">
             <%= link_to "Feed", root_path, class: "dropdown-item" %>
             <% if current_user.profile %>

@@ -12,11 +12,11 @@
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 8px;
-  background-color: $secondaryteal;
+  color: $secondaryteal;
   border: 0;
-  color: $neutralgrey200;
+  background-color: $coolgrey800;
   &:hover {
-    background-color: $primaryteal;
+    color: $primaryteal;
 }
 }
 
