@@ -1,11 +1,13 @@
 <div class="comment-card d-flex justify-content-between align-items-center w-100">
   <div style="width:70%;">
     <div>
+    <%= link_to profile_path(comment.user.profile) do %>
       <p class="name-username user-details">
         <b><%= comment.user.first_name %>
         <%= comment.user.last_name %></b>
         @<%= comment.user.username %>
       </p>
+    <% end %>
     </div>
     <p><%= comment.content %></p>
   </div>

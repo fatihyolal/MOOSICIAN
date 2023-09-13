@@ -9,13 +9,7 @@ class PostsController < ApplicationController
       @posts = policy_scope(Post)
     end
     @comment = Comment.new
-
-    @chatrooms = policy_scope(Chatroom)
-    @last_messages = []
-    # raise
-    @chatrooms.each do |chatroom|
-      @last_messages << chatroom.messages.last unless chatroom.messages.last.user == current_user
-    end
+    get_last_messages
     respond_to do |format|
       format.html
       format.text { render partial: "posts/list", locals: { posts: @posts }, formats: [:html] }
@@ -34,9 +28,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     #  @post.attachment_url = result['secure_url']
     @post.user = current_user
-      if @post.save
-       @posts = policy_scope(Post)
-
+    get_last_messages
+    if @post.save
+      @posts = policy_scope(Post)
       @comment = Comment.new
       respond_to do |format|
         format.html { redirect_to posts_path }
@@ -48,13 +42,21 @@ class PostsController < ApplicationController
       @posts = policy_scope(Post)
       render :index, status: :unprocessable_entity
     end
-       authorize @post
+    authorize @post
   end
 
-   private
+  private
 
   def post_params
     params.require(:post).permit(:description, :audio_data, :music_url, :embed_url)
+  end
+
+  def get_last_messages
+    @chatrooms = policy_scope(Chatroom)
+    @last_messages = []
+    @chatrooms.each do |chatroom|
+      @last_messages << chatroom.messages.last unless chatroom.messages.last.user == current_user
+    end
   end
 
 end

@@ -8,12 +8,10 @@
         <%=pluralize posts.count , "result"  %> for <code> <%=params[:query] %></code>
       </p>
     </div>
-   <% end %>
-
-
+  <% end %>
   <div class="posts">
     <%posts.each do |post| %>
       <%= render "post" ,post: post%>
-      <% end  %>
+    <% end  %>
   </div>
 </div>

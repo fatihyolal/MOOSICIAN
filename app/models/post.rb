@@ -12,7 +12,8 @@ class Post < ApplicationRecord
                     (?:[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})
                     (?:\:[0-9]{1,5})?
                     (?:\/\S*)?\z/x
- validates_format_of :music_url, with: VALID_URL_REGEX, message: 'is not a valid URL'
+ validates_format_of :music_url, with: VALID_URL_REGEX, allow_blank: true, message: 'is not a valid URL',if: -> { self.audio_data.blank? }
+
 
   # validates :category, inclusion: { in: ["rock", "jazz", "blues", "hiphop", "rap"] }
 
@@ -21,6 +22,7 @@ class Post < ApplicationRecord
   def liked_by_user?(user)
     self.likes.find_by(user: user).present?
   end
+
 end
 
 #test
