@@ -4,7 +4,7 @@
       <%= link_to "", post_path(post.id) %>
       <% if current_user.profile %>
         <%= link_to profile_path(post.user.profile) do %>
-          <div class="d-flex py-2">
+          <div class="d-flex py-1 add-border">
             <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
             <div>
               <div>
@@ -20,7 +20,7 @@
           </div>
         <% end %>
       <% end %>
-      <h1 class="name-username mb-3 ms-1"><%= post.description %></h1>
+      <h1 class="name-username my-3 ms-1"><%= post.description %></h1>
       <% if post.embed_url.present? %>
         <div class="video-container">
           <%= raw post.embed_url %>
