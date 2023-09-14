@@ -98,12 +98,73 @@ chatrooms7 = Chatroom.create!(user_1: users2.id, user_2: users4.id)
   #  music_url:"https://youtu.be/o2Vw4llfoQ8?si=AC8W1EFWDSzoD_z2"
   )
 
+
+  posts6 = Post.create!(title: "whats on your mind moosician",
+    description: "What female artists you guys rocking with at the moment",
+    category: "rap",
+    user:users2
+   )
+
+
+   posts7 = Post.create!(title: "whats on your mind moosician",
+    description: "it takes a lot to be the best producer/rapper in the world",
+    category: "rap",
+    user:users1
+   )
+
+   posts8 = Post.create!(title: "whats on your mind moosician",
+    description: "Hahaha the prices you guys want for beats that takes us days to make is funny",
+    category: "rap",
+    user:users4
+   )
+
+   posts9 = Post.create!(title: "whats on your mind moosician",
+    description: "Hace mucho tiempo le hago caso al corazón
+    Y pasan los día', los mese’ pensando en tu olor (En tu olor, en tu olor)",
+    category: "rap",
+    user:users5
+   )
+
+   posts10 = Post.create!(title: "whats on your mind moosician",
+    description: "Locked in album mode , need all the fire producers and beat makers to hit me up ya heard",
+    category: "rap",
+    user:users3
+   )
+
+   posts11 = Post.create!(title: "whats on your mind moosician",
+    description: "I wonder if anyone is going through heart break i got them melodic heart break beats on deck!",
+    category: "rap",
+    user:users4
+   )
+
+   posts12 = Post.create!(title: "whats on your mind moosician",
+    description: "I think we ready to go to the next level now",
+    category: "rap",
+    user:users1
+   )
+
+   posts11 = Post.create!(title: "whats on your mind moosician",
+    description: "beats on beats in my inbox yet none of them good enough sigh",
+    category: "rap",
+    user:users3
+   )
+
+   posts12 = Post.create!(title: "whats on your mind moosician",
+    description: "reggaeton to the world and backkk suiiiii ",
+    category: "rap",
+    user:users5
+   )
+
+
+
    Comment.create!(content:"leet me see what i can do for you boss",user:users1,post:posts1)
    Comment.create(content:"I am a huge fan man keep it up",user:users2,post:posts1)
   Comment.create(content:"We need to link up sooon",user:users3,post:posts1)
   Comment.create(content:"check your dms",user:users4,post:posts1)
   Comment.create(content:"I always thought you should get more recognition bro",user:users5,post:posts1)
   Comment.create(content:"We need to link up sooon",user:users3,post:posts2)
+  Comment.create(content:"Papi you fire ",user:users5,post:posts2)
+  Comment.create(content:"THUGGA HAHA MY BOY ",user:users1,post:posts2)
   Comment.create(content:"This is fire!",user:users4,post:posts2)
   Comment.create(content:"Would love to discuss this more, sent you a message...",user:users5,post:posts2)
   Comment.create(content:"Would love to discuss this more, sent you a message...",user:users4,post:posts3)
