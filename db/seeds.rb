@@ -143,7 +143,19 @@ chatrooms7 = Chatroom.create!(user_1: users2.id, user_2: users4.id)
     user:users1
    )
 
-   
+   posts11 = Post.create!(title: "whats on your mind moosician",
+    description: "beats on beats in my inbox yet none of them good enough sigh",
+    category: "rap",
+    user:users3
+   )
+
+   posts12 = Post.create!(title: "whats on your mind moosician",
+    description: "reggaeton to the world and backkk suiiiii ",
+    category: "rap",
+    user:users5
+   )
+
+
 
    Comment.create!(content:"leet me see what i can do for you boss",user:users1,post:posts1)
    Comment.create(content:"I am a huge fan man keep it up",user:users2,post:posts1)
