@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 10px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -15,7 +15,7 @@
 }
 
 .bottom-border-radius {
-  border-radius: 20px 20px 0 0;
+  border-radius: 10px 10px 0 0;
 }
 
 .remove-btn-style {
@@ -45,7 +45,7 @@
 
 .new-post-textfield {
   background-color: $coolgrey700;
-  border-radius: 20px;
+  border-radius: 10px;
   color: $neutralgrey400;
   border: none;
   &:focus {
@@ -58,7 +58,7 @@
 
 .new-post-textfield-secondary {
   background-color: $coolgrey800;
-  border-radius: 20px;
+  border-radius: 10px;
   color: $neutralgrey400;
   border: none;
   &:focus {
@@ -79,7 +79,7 @@
   // border-color: #93B5C6;
   // border-style: dotted;
 
-  border-radius: 20px;
+  border-radius: 10px;
   &:hover {
     color: white;
     transition: 0.3s ease;
@@ -96,8 +96,9 @@
 
 iframe{
   width: 100%;
-  height: 200px;
-  border-radius: 15px;
+
+  height: 350px;
+  border-radius: 10px;
   box-shadow: 5px 5px 5px $coolgrey700;
 }
 

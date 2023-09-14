@@ -1,20 +1,20 @@
-<div class="my-3" data-controller="comments">
+<div class="my-4" data-controller="comments">
   <div class="index-card" data-comments-target="indexCard">
     <div class = "w-100">
       <%= link_to "", post_path(post.id) %>
       <% if current_user.profile %>
         <%= link_to profile_path(post.user.profile) do %>
-          <div class="d-flex py-1 add-border">
+          <div class="d-flex add-border">
             <%= cl_image_tag post.user.photo.key, class: "avatar me-2" %>
             <div>
               <div>
-                <p class="name-username">
+                <p class="name-username pt-2">
                   <b><%= post.user.first_name %>
                     <%= post.user.last_name %></b>
                   @<%= post.user.username %>
                 </p>
               </div>
-              <p class="name-username secondary-text" style="font-size: 14px;"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i>
+              <p class="name-username secondary-text pb-2" style="font-size: 14px;"><i><%= post.created_at.strftime("created at %I:%M%p on %m/%d/%Y") %></i>
               </p>
             </div>
           </div>
@@ -43,16 +43,16 @@
       <% end %>
       <%= turbo_frame_tag dom_id(post, :like) do %>
         <div class="d-flex align-items-center justify-content-between">
-          <div class ="d-flex align-items-center ">
+          <div class ="d-flex align-items-center">
             <h5 class="me-1 mb-0 text-color"><%= post.likes.length %></h5>
 
             <% if post.liked_by_user?(current_user) %>
               <%= link_to like_path(post.likes.find_by(user: current_user)), data: { turbo_method: :delete } do %>
-                <i class="fa-solid fa-heart fa-sharp icon fa-xl me-1"></i>
+                <i class="fa-solid fa-heart fa-sharp icon fa-xl me-2"></i>
               <% end %>
             <% else %>
               <%= link_to post_likes_path(post), data: { turbo_method: :post } do %>
-                <i class="fa-regular fa-heart fa-sharp icon fa-xl me-1"></i>
+                <i class="fa-regular fa-heart fa-sharp icon fa-xl me-2"></i>
               <% end %>
             <% end %>
             <%# <% end MAYBE END OF TURBOFRAME%>

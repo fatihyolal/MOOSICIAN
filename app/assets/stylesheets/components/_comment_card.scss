@@ -5,7 +5,7 @@
 
 .comment-container {
   background-color: $coolgrey700;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 10px 10px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -18,7 +18,7 @@
 
 .comment-text-input {
   background-color: $coolgrey700;
-  border-radius: 20px;
+  border-radius: 10px;
   margin-top: 15px;
   border: none;
   &:focus {
